@@ -1,44 +1,1137 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kaliningrad Immobilienbegleitung</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <header class="contact-bar">
-      <div class="container contact-bar__content">
-        <div class="contact-bar__details">
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.phoneLabel">Telefon</span>
-            <a class="contact-entry__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
-          </div>
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.emailLabel">E-Mail</span>
-            <a class="contact-entry__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
-          </div>
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.hoursLabel">Sprechzeiten</span>
-            <span class="contact-entry__value" data-i18n="contact.hoursValue">Montag – Freitag, 09:00 – 18:00 Uhr</span>
-          </div>
+<head>
+  <!-- Character encoding and viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO meta tags -->
+  <meta name="description" content="Professionelle Immobilienbegleitung im Kaliningrader Gebiet für deutsche und EU-Klienten. Vertragsvorbereitung, Dokumentenservice und Transaktionsbetreuung.">
+  <meta name="keywords" content="Kaliningrad, Immobilien, Russland, Kaufvertrag, Dokumentenservice, EU">
+  <meta name="author" content="Kaliningrad Immobilienbegleitung">
+  
+  <!-- Page title -->
+  <title>Kaliningrad Immobilienbegleitung – Verlässliche Unterstützung für EU-Klienten</title>
+  
+  <!-- Favicon (minimalistic house icon as data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232C3E50' d='M50 10L10 40v50h30V60h20v30h30V40z'/%3E%3C/svg%3E">
+  
+  <!-- Embedded styles: mobile-first, German minimalistic aesthetic -->
+  <style>
+    /* ========================================
+       CSS Reset & Base Styles
+       ======================================== */
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #2C3E50;
+      background-color: #ECF0F1;
+    }
+    
+    /* ========================================
+       Typography: Clear hierarchy
+       ======================================== */
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0 0 1rem 0;
+      line-height: 1.3;
+      font-weight: 600;
+      color: #2C3E50;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+    }
+    
+    p {
+      margin: 0 0 1rem 0;
+    }
+    
+    a {
+      color: #E8B17C;
+      text-decoration: none;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    a:hover {
+      opacity: 0.8;
+    }
+    
+    a:focus {
+      outline: 2px solid #E8B17C;
+      outline-offset: 2px;
+    }
+    
+    ul {
+      margin: 0;
+      padding: 0 0 0 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* ========================================
+       Layout Utilities
+       ======================================== */
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    
+    /* ========================================
+       Header: Sticky contact bar with language switcher
+       ======================================== */
+    
+    .header {
+      position: sticky;
+      top: 0;
+      background-color: #2C3E50;
+      color: #ECF0F1;
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    .header__container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .header__top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .header__logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #ECF0F1;
+    }
+    
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .mobile-menu-toggle {
+      display: block;
+      background: transparent;
+      border: 1px solid rgba(236, 240, 241, 0.5);
+      color: #ECF0F1;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      background-color: rgba(236, 240, 241, 0.1);
+    }
+    
+    .mobile-menu-toggle:focus {
+      outline: 2px solid #E8B17C;
+      outline-offset: 2px;
+    }
+    
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .language-switcher__label {
+      font-size: 0.875rem;
+    }
+    
+    .language-button {
+      padding: 0.375rem 0.625rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #ECF0F1;
+      background-color: transparent;
+      border: 1px solid rgba(236, 240, 241, 0.5);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .language-button:hover {
+      background-color: rgba(236, 240, 241, 0.1);
+    }
+    
+    .language-button[aria-pressed="true"] {
+      background-color: rgba(236, 240, 241, 0.2);
+      border-color: #ECF0F1;
+    }
+    
+    .language-button:focus {
+      outline: 2px solid #E8B17C;
+      outline-offset: 2px;
+    }
+    
+    /* Navigation menu */
+    .header__nav {
+      display: none;
+    }
+    
+    .header__nav.is-open {
+      display: block;
+    }
+    
+    .nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .nav__link {
+      color: #ECF0F1;
+      font-size: 0.9375rem;
+      padding: 0.5rem 0;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    
+    .nav__link:hover {
+      color: #E8B17C;
+    }
+    
+    /* Contact bar within header */
+    .contact-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(236, 240, 241, 0.2);
+    }
+    
+    .contact-entry {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .contact-entry__label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
+    }
+    
+    .contact-entry__value {
+      color: #ECF0F1;
+      font-weight: 500;
+      font-size: 0.9375rem;
+    }
+    
+    .contact-entry__value:hover {
+      opacity: 0.8;
+    }
+    
+    /* ========================================
+       Hero Section
+       ======================================== */
+    
+    .hero {
+      padding: 5rem 0;
+      background-color: #ffffff;
+    }
+    
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .hero__content {
+      order: 1;
+    }
+    
+    .hero__title {
+      margin-bottom: 1.5rem;
+      color: #2C3E50;
+    }
+    
+    .hero__subtitle {
+      font-size: 1.125rem;
+      color: #5a6c7d;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .hero__highlights {
+      margin: 2rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .hero__highlights li {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+    
+    .hero__image {
+      order: 2;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
+    }
+    
+    .hero__card {
+      order: 3;
+      background-color: #ECF0F1;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    }
+    
+    .hero__card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero__card p {
+      color: #5a6c7d;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-card__item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-card__label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #5a6c7d;
+    }
+    
+    .contact-card__item a,
+    .contact-card__item span {
+      font-size: 1rem;
+      color: #2C3E50;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .button:focus {
+      outline: 2px solid #E8B17C;
+      outline-offset: 2px;
+    }
+    
+    .button--primary {
+      color: #ffffff;
+      background-color: #E8B17C;
+    }
+    
+    .button--primary:hover {
+      background-color: #d99a5f;
+    }
+    
+    .button--wide {
+      width: 100%;
+    }
+    
+    /* ========================================
+       Sections: Generous spacing (80-120px)
+       ======================================== */
+    
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section--light {
+      background-color: #ECF0F1;
+    }
+    
+    .section--white {
+      background-color: #ffffff;
+    }
+    
+    .section__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section__title {
+      margin-bottom: 1rem;
+    }
+    
+    .section__subtitle {
+      font-size: 1.125rem;
+      color: #5a6c7d;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    /* ========================================
+       Services Section: Cards with hover effects
+       ======================================== */
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .service-card {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+      box-shadow: 0 6px 16px rgba(44, 62, 80, 0.2);
+      transform: translateY(-4px);
+    }
+    
+    .service-card__icon {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      border-radius: 6px;
+    }
+    
+    .service-card h3 {
+      margin-bottom: 1rem;
+      color: #2C3E50;
+    }
+    
+    .service-card p {
+      color: #5a6c7d;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+    
+    /* ========================================
+       About Section
+       ======================================== */
+    
+    .about__content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about__intro {
+      margin-bottom: 2.5rem;
+    }
+    
+    .about__intro p {
+      font-size: 1.125rem;
+      color: #5a6c7d;
+      line-height: 1.7;
+    }
+    
+    .about__features {
+      margin-top: 2rem;
+    }
+    
+    .about__features h3 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .about__features ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .about__features li {
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .about__features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #E8B17C;
+      font-weight: 700;
+    }
+    
+    /* ========================================
+       Testimonials Section: Carousel-ready container
+       ======================================== */
+    
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    }
+    
+    .testimonial-card__quote {
+      font-size: 1.125rem;
+      font-style: italic;
+      color: #2C3E50;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .testimonial-card__avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .testimonial-card__info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-card__name {
+      font-weight: 600;
+      color: #2C3E50;
+      margin-bottom: 0.25rem;
+    }
+    
+    .testimonial-card__title {
+      font-size: 0.875rem;
+      color: #5a6c7d;
+    }
+    
+    /* ========================================
+       FAQ Section: Accordion structure
+       ======================================== */
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    
+    .faq-item {
+      background-color: #ffffff;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    }
+    
+    .faq-item__question {
+      width: 100%;
+      background-color: #ffffff;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #2C3E50;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .faq-item__question:hover {
+      background-color: #f8f9fa;
+    }
+    
+    .faq-item__question:focus {
+      outline: 2px solid #E8B17C;
+      outline-offset: -2px;
+    }
+    
+    .faq-item__question::after {
+      content: "+";
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #E8B17C;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item__question[aria-expanded="true"]::after {
+      transform: rotate(45deg);
+    }
+    
+    .faq-item__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .faq-item__answer.is-open {
+      max-height: 500px;
+      padding: 0 1.5rem 1.25rem;
+    }
+    
+    .faq-item__answer p {
+      color: #5a6c7d;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    
+    .faq-item__answer p:last-child {
+      margin-bottom: 0;
+    }
+    
+    /* ========================================
+       Contact Section: Map, social links, messengers
+       ======================================== */
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .contact-info {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-detail {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-detail__label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #5a6c7d;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .contact-detail__value {
+      color: #2C3E50;
+      font-size: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: #E8B17C;
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: #d99a5f;
+      transform: scale(1.1);
+    }
+    
+    .messenger-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    
+    .messenger-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background-color: #ECF0F1;
+      border-radius: 6px;
+      color: #2C3E50;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+    
+    .messenger-link:hover {
+      background-color: #d5dce0;
+    }
+    
+    .contact-map {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+      height: 400px;
+    }
+    
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* ========================================
+       Contact Form Section
+       ======================================== */
+    
+    .form-section {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .form-section__intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .form-section__intro h2 {
+      margin-bottom: 1rem;
+    }
+    
+    .form-section__intro p {
+      font-size: 1.125rem;
+      color: #5a6c7d;
+      line-height: 1.7;
+    }
+    
+    .form {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+    }
+    
+    .form__group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form__group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2C3E50;
+    }
+    
+    .form__group input,
+    .form__group textarea {
+      width: 100%;
+      padding: 0.875rem;
+      font-family: 'Roboto', 'Open Sans', sans-serif;
+      font-size: 1rem;
+      color: #2C3E50;
+      background-color: #ffffff;
+      border: 1px solid #d5dce0;
+      border-radius: 4px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .form__group input:focus,
+    .form__group textarea:focus {
+      outline: none;
+      border-color: #E8B17C;
+      box-shadow: 0 0 0 3px rgba(232, 177, 124, 0.2);
+    }
+    
+    .form__group input.error,
+    .form__group textarea.error {
+      border-color: #dc3545;
+    }
+    
+    .form__group--checkbox {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    
+    .form__group--checkbox input {
+      width: auto;
+      margin-top: 0.25rem;
+      cursor: pointer;
+    }
+    
+    .form__group--checkbox label {
+      margin-bottom: 0;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    
+    .form__response {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .form__response.success {
+      color: #28a745;
+      background-color: rgba(40, 167, 69, 0.1);
+      border: 1px solid rgba(40, 167, 69, 0.3);
+    }
+    
+    .form__response.error {
+      color: #dc3545;
+      background-color: rgba(220, 53, 69, 0.1);
+      border: 1px solid rgba(220, 53, 69, 0.3);
+    }
+    
+    .form__response:empty {
+      display: none;
+    }
+    
+    /* ========================================
+       Footer
+       ======================================== */
+    
+    .footer {
+      background-color: #2C3E50;
+      color: #ECF0F1;
+      padding: 3rem 0 2rem;
+    }
+    
+    .footer__content {
+      text-align: center;
+    }
+    
+    .footer__text {
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer__links {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    
+    .footer__link {
+      color: #ECF0F1;
+      font-size: 0.9375rem;
+    }
+    
+    .footer__link:hover {
+      color: #E8B17C;
+    }
+    
+    /* ========================================
+       Responsive Design: Tablet (768px - 1199px)
+       ======================================== */
+    
+    @media (min-width: 768px) {
+      /* Typography */
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+      }
+      
+      /* Header */
+      .header__container {
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .header__nav {
+        display: block;
+        flex: 1;
+        margin-left: 2rem;
+      }
+      
+      .nav {
+        flex-direction: row;
+        gap: 1.5rem;
+      }
+      
+      .mobile-menu-toggle {
+        display: none;
+      }
+      
+      .contact-bar {
+        flex-direction: row;
+        gap: 2rem;
+        padding-top: 0;
+        border-top: none;
+        margin-left: auto;
+      }
+      
+      /* Hero */
+      .hero {
+        padding: 6rem 0;
+      }
+      
+      .hero__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      
+      .hero__content {
+        order: 1;
+      }
+      
+      .hero__image {
+        order: 2;
+      }
+      
+      .hero__card {
+        order: 3;
+        grid-column: 1 / -1;
+      }
+      
+      /* Sections */
+      .section {
+        padding: 6rem 0;
+      }
+      
+      /* Services */
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      /* Testimonials */
+      .testimonials-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      /* Contact */
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      
+      .contact-map {
+        grid-column: 1 / -1;
+      }
+    }
+    
+    /* ========================================
+       Responsive Design: Desktop (≥1200px)
+       ======================================== */
+    
+    @media (min-width: 1200px) {
+      /* Typography */
+      h1 {
+        font-size: 3rem;
+      }
+      
+      h2 {
+        font-size: 2.25rem;
+      }
+      
+      /* Hero */
+      .hero {
+        padding: 7.5rem 0;
+      }
+      
+      .hero__grid {
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+      }
+      
+      .hero__card {
+        order: 2;
+        grid-column: auto;
+      }
+      
+      .hero__image {
+        order: 3;
+        grid-column: 1 / -1;
+      }
+      
+      /* Sections */
+      .section {
+        padding: 7.5rem 0;
+      }
+      
+      /* Services */
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
+      
+      /* Testimonials */
+      .testimonials-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
+    }
+    
+    /* ========================================
+       Accessibility & Print
+       ======================================== */
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    
+    /* Focus visible for keyboard navigation */
+    :focus-visible {
+      outline: 2px solid #E8B17C;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ========================================
+       Header: Sticky navigation with contact bar
+       ======================================== -->
+  <header class="header" role="banner">
+    <div class="container header__container">
+      <!-- Logo -->
+      <div class="header__top">
+        <div class="header__logo" data-i18n="header.logo">
+          Kaliningrad Immobilien
         </div>
-        <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
-          <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
-          <div class="language-switcher__buttons">
+        
+        <!-- Mobile menu toggle -->
+        <div class="header__actions">
+          <button type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-nav" data-i18n="header.menuToggle">
+            Menü
+          </button>
+          
+          <!-- Language switcher -->
+          <div class="language-switcher" role="group" aria-label="Sprachauswahl">
+            <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache:</span>
             <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
             <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
           </div>
         </div>
       </div>
-    </header>
+      
+      <!-- Navigation menu -->
+      <nav class="header__nav" id="main-nav" aria-label="Hauptnavigation">
+        <ul class="nav">
+          <li><a href="#home" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav.services">Leistungen</a></li>
+          <li><a href="#about" class="nav__link" data-i18n="nav.about">Über uns</a></li>
+          <li><a href="#testimonials" class="nav__link" data-i18n="nav.testimonials">Referenzen</a></li>
+          <li><a href="#faq" class="nav__link" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="#contact" class="nav__link" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Contact bar -->
+      <div class="contact-bar">
+        <div class="contact-entry">
+          <span class="contact-entry__label" data-i18n="contact.phoneLabel">Telefon</span>
+          <a class="contact-entry__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
+        </div>
+        <div class="contact-entry">
+          <span class="contact-entry__label" data-i18n="contact.emailLabel">E-Mail</span>
+          <a class="contact-entry__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="container hero__grid">
+  <!-- ========================================
+       Main Content
+       ======================================== -->
+  <main role="main">
+    
+    <!-- Hero Section -->
+    <section class="hero section--white" id="home">
+      <div class="container">
+        <div class="hero__grid">
+          <!-- Hero content -->
           <div class="hero__content">
-            <h1 data-i18n="hero.title">Verlässliche Immobilienunterstützung im Kaliningrader Gebiet</h1>
+            <h1 class="hero__title" data-i18n="hero.title">
+              Verlässliche Immobilienunterstützung im Kaliningrader Gebiet
+            </h1>
             <p class="hero__subtitle" data-i18n="hero.subtitle">
               Wir begleiten Sie durch jeden Schritt Ihrer Immobilieninvestition – vom ersten Vertrag bis zur sicheren Übergabe.
             </p>
@@ -47,11 +1140,19 @@
               <li data-i18n="hero.point2">Prüfung und Erstellung rechtssicherer Kaufunterlagen</li>
               <li data-i18n="hero.point3">Betreuung vor Ort mit lokalen Expert:innen</li>
             </ul>
-            <a class="button button--primary" href="#consultation" data-i18n="hero.button">Beratung anfordern</a>
+            <a class="button button--primary" href="#consultation" data-i18n="hero.button">
+              Beratung anfordern
+            </a>
           </div>
+          
+          <!-- Hero contact card -->
           <div class="hero__card" aria-labelledby="contact-card-heading">
-            <h2 id="contact-card-heading" data-i18n="contactInfo.heading">Ihr direkter Draht zu uns</h2>
-            <p data-i18n="contactInfo.text">Kontaktieren Sie uns für eine erste Einschätzung Ihres Vorhabens.</p>
+            <h2 id="contact-card-heading" data-i18n="contactInfo.heading">
+              Ihr direkter Draht zu uns
+            </h2>
+            <p data-i18n="contactInfo.text">
+              Kontaktieren Sie uns für eine erste Einschätzung Ihres Vorhabens.
+            </p>
             <div class="contact-card__item">
               <span class="contact-card__label" data-i18n="contact.phoneLabel">Telefon</span>
               <a href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
@@ -65,13 +1166,75 @@
               <span data-i18n="contact.addressValue">Kaliningrader Gebiet, Russische Föderation</span>
             </div>
           </div>
+          
+          <!-- Hero image -->
+          <div class="hero__image">
+            <img src="https://placehold.co/1200x600/2C3E50/ECF0F1?text=Kaliningrad+Real+Estate" alt="Moderne Immobilie im Kaliningrader Gebiet" loading="lazy">
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section--light" id="about">
-        <div class="container section__content">
-          <div class="section__intro">
-            <h2 data-i18n="about.heading">Über uns</h2>
+    <!-- Services Section -->
+    <section class="section section--light" id="services">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="services.heading">
+            Unsere Leistungen
+          </h2>
+          <p class="section__subtitle" data-i18n="services.intro">
+            Wir übernehmen die vollständige Vorbereitung Ihrer Immobilientransaktion.
+          </p>
+        </div>
+        
+        <div class="services-grid">
+          <!-- Service 1: Contract Preparation -->
+          <article class="service-card">
+            <img src="https://placehold.co/400x250/E8B17C/2C3E50?text=Vertragsvorbereitung" alt="Vertragsvorbereitung für Immobilientransaktionen" class="service-card__icon" loading="lazy">
+            <h3 data-i18n="services.contract.title">
+              Vertragsvorbereitung
+            </h3>
+            <p data-i18n="services.contract.text">
+              Ausarbeitung und Prüfung von Kauf- und Mietverträgen nach deutschen und russischen Standards.
+            </p>
+          </article>
+          
+          <!-- Service 2: Documentation Service -->
+          <article class="service-card">
+            <img src="https://placehold.co/400x250/E8B17C/2C3E50?text=Dokumentenservice" alt="Dokumentenservice und Übersetzungen" class="service-card__icon" loading="lazy">
+            <h3 data-i18n="services.documents.title">
+              Dokumentenservice
+            </h3>
+            <p data-i18n="services.documents.text">
+              Beschaffung und Übersetzung aller notwendigen Unterlagen für Behörden und Banken.
+            </p>
+          </article>
+          
+          <!-- Service 3: Transaction Support -->
+          <article class="service-card">
+            <img src="https://placehold.co/400x250/E8B17C/2C3E50?text=Transaktionsbetreuung" alt="Komplette Transaktionsbetreuung vor Ort" class="service-card__icon" loading="lazy">
+            <h3 data-i18n="services.transaction.title">
+              Transaktionsbetreuung
+            </h3>
+            <p data-i18n="services.transaction.text">
+              Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section--white" id="about">
+      <div class="container">
+        <div class="about__content">
+          <div class="section__header">
+            <h2 class="section__title" data-i18n="about.heading">
+              Über uns
+            </h2>
+          </div>
+          
+          <div class="about__intro">
             <p data-i18n="about.paragraph1">
               Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.
             </p>
@@ -79,8 +1242,11 @@
               Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.
             </p>
           </div>
-          <div class="section__list">
-            <h3 data-i18n="about.listTitle">Was uns auszeichnet</h3>
+          
+          <div class="about__features">
+            <h3 data-i18n="about.listTitle">
+              Was uns auszeichnet
+            </h3>
             <ul>
               <li data-i18n="about.point1">Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen</li>
               <li data-i18n="about.point2">Klares Kostenmodell ohne versteckte Gebühren</li>
@@ -88,69 +1254,376 @@
             </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="services">
-        <div class="container">
-          <h2 data-i18n="services.heading">Unsere Leistungen</h2>
-          <p class="section__subtitle" data-i18n="services.intro">Wir übernehmen die vollständige Vorbereitung Ihrer Immobilientransaktion.</p>
-          <div class="service-grid">
-            <article class="service-card">
-              <h3 data-i18n="services.contract.title">Vertragsvorbereitung</h3>
-              <p data-i18n="services.contract.text">Ausarbeitung und Prüfung von Kauf- und Mietverträgen nach deutschen und russischen Standards.</p>
-            </article>
-            <article class="service-card">
-              <h3 data-i18n="services.documents.title">Dokumentenservice</h3>
-              <p data-i18n="services.documents.text">Beschaffung und Übersetzung aller notwendigen Unterlagen für Behörden und Banken.</p>
-            </article>
-            <article class="service-card">
-              <h3 data-i18n="services.transaction.title">Transaktionsbetreuung</h3>
-              <p data-i18n="services.transaction.text">Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.</p>
-            </article>
+    <!-- Testimonials Section -->
+    <section class="section section--light" id="testimonials">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="testimonials.heading">
+            Was unsere Klienten sagen
+          </h2>
+          <p class="section__subtitle" data-i18n="testimonials.intro">
+            Erfahrungen von EU-Klienten, die wir bei ihren Immobilientransaktionen begleitet haben.
+          </p>
+        </div>
+        
+        <!-- Testimonials container: scripting-ready for carousel -->
+        <div class="testimonials-container">
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card">
+            <blockquote class="testimonial-card__quote" data-i18n="testimonials.testimonial1.quote">
+              "Die Beratung war klar und verständlich. Besonders die mehrsprachige Kommunikation hat den gesamten Prozess erheblich erleichtert."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/120x120/2C3E50/ECF0F1?text=M.S." alt="Portrait von Maria Schmidt" class="testimonial-card__avatar" loading="lazy">
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name" data-i18n="testimonials.testimonial1.name">
+                  Maria Schmidt
+                </div>
+                <div class="testimonial-card__title" data-i18n="testimonials.testimonial1.title">
+                  Berlin, Deutschland
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Testimonial 2 -->
+          <article class="testimonial-card">
+            <blockquote class="testimonial-card__quote" data-i18n="testimonials.testimonial2.quote">
+              "Dank der professionellen Betreuung verlief die Transaktion reibungslos. Alle Dokumente waren perfekt vorbereitet."
+            </blockquote>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/120x120/2C3E50/ECF0F1?text=J.M." alt="Portrait von Jan Müller" class="testimonial-card__avatar" loading="lazy">
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name" data-i18n="testimonials.testimonial2.name">
+                  Jan Müller
+                </div>
+                <div class="testimonial-card__title" data-i18n="testimonials.testimonial2.title">
+                  Hamburg, Deutschland
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Testimonial 3 -->
+          <article class="testimonial-card">
+            <blockquote class="testimonial-card__quote" data-i18n="testimonials.testimonial3.quote">
+              "Hervorragende lokale Kenntnisse kombiniert mit europäischen Standards. Absolut empfehlenswert!"
+            </blockquote>
+            <div class="testimonial-card__author">
+              <img src="https://placehold.co/120x120/2C3E50/ECF0F1?text=S.W." alt="Portrait von Sophie Weber" class="testimonial-card__avatar" loading="lazy">
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name" data-i18n="testimonials.testimonial3.name">
+                  Sophie Weber
+                </div>
+                <div class="testimonial-card__title" data-i18n="testimonials.testimonial3.title">
+                  München, Deutschland
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section--white" id="faq">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="faq.heading">
+            Häufig gestellte Fragen
+          </h2>
+          <p class="section__subtitle" data-i18n="faq.intro">
+            Antworten auf die wichtigsten Fragen zu Immobilientransaktionen im Kaliningrader Gebiet.
+          </p>
+        </div>
+        
+        <!-- FAQ accordion container: scripting-ready -->
+        <div class="faq-container">
+          <!-- FAQ Item 1 -->
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-1" data-i18n="faq.question1">
+              Benötige ich spezielle Genehmigungen für einen Immobilienkauf?
+            </button>
+            <div class="faq-item__answer" id="faq-answer-1">
+              <p data-i18n="faq.answer1">
+                Ja, für Immobilienkäufe im Kaliningrader Gebiet durch ausländische Käufer sind bestimmte Genehmigungen erforderlich. Wir unterstützen Sie bei der Beschaffung aller notwendigen Dokumente und begleiten Sie durch den Genehmigungsprozess.
+              </p>
+            </div>
+          </article>
+          
+          <!-- FAQ Item 2 -->
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-2" data-i18n="faq.question2">
+              Wie lange dauert eine typische Transaktion?
+            </button>
+            <div class="faq-item__answer" id="faq-answer-2">
+              <p data-i18n="faq.answer2">
+                Eine Immobilientransaktion dauert in der Regel 3 bis 6 Monate, abhängig von der Komplexität des Objekts und der Verfügbarkeit der erforderlichen Dokumente. Wir koordinieren alle Schritte, um den Prozess so effizient wie möglich zu gestalten.
+              </p>
+            </div>
+          </article>
+          
+          <!-- FAQ Item 3 -->
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-3" data-i18n="faq.question3">
+              Welche Kosten entstehen neben dem Kaufpreis?
+            </button>
+            <div class="faq-item__answer" id="faq-answer-3">
+              <p data-i18n="faq.answer3">
+                Zusätzlich zum Kaufpreis fallen Notargebühren, Registrierungskosten, Übersetzungskosten und unsere Servicegebühren an. Wir erstellen Ihnen vorab eine transparente Kostenkalkulation, sodass Sie genau wissen, welche Ausgaben auf Sie zukommen.
+              </p>
+            </div>
+          </article>
+          
+          <!-- FAQ Item 4 -->
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-4" data-i18n="faq.question4">
+              Muss ich persönlich vor Ort sein?
+            </button>
+            <div class="faq-item__answer" id="faq-answer-4">
+              <p data-i18n="faq.answer4">
+                In den meisten Fällen ist mindestens ein Termin vor Ort für die notarielle Beurkundung erforderlich. Wir koordinieren jedoch alle Vorbereitungen, sodass Ihre Anwesenheit auf ein Minimum reduziert wird. In bestimmten Fällen können Vollmachten die Anwesenheit ersetzen.
+              </p>
+            </div>
+          </article>
+          
+          <!-- FAQ Item 5 -->
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-5" data-i18n="faq.question5">
+              Sprechen Ihre Mitarbeiter Deutsch?
+            </button>
+            <div class="faq-item__answer" id="faq-answer-5">
+              <p data-i18n="faq.answer5">
+                Ja, unser Team besteht aus mehrsprachigen Fachleuten, die fließend Deutsch, Englisch und Russisch sprechen. Die gesamte Kommunikation und Dokumentation erfolgt in Ihrer bevorzugten Sprache, um Missverständnisse zu vermeiden.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section--light" id="contact">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title" data-i18n="contact.heading">
+            Kontakt
+          </h2>
+          <p class="section__subtitle" data-i18n="contact.intro">
+            Erreichen Sie uns per Telefon, E-Mail oder über unsere Social-Media-Kanäle.
+          </p>
+        </div>
+        
+        <div class="contact-grid">
+          <!-- Contact information -->
+          <div class="contact-info">
+            <h3 data-i18n="contact.infoHeading">
+              Kontaktdaten
+            </h3>
+            
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.phoneLabel">Telefon</span>
+              <a href="tel:+49301234567" class="contact-detail__value" data-i18n="contact.phoneValue">
+                +49 30 123 4567
+              </a>
+            </div>
+            
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.emailLabel">E-Mail</span>
+              <a href="mailto:info@kaliningrad-immobilien.de" class="contact-detail__value" data-i18n="contact.emailValue">
+                info@kaliningrad-immobilien.de
+              </a>
+            </div>
+            
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.hoursLabel">Sprechzeiten</span>
+              <span class="contact-detail__value" data-i18n="contact.hoursValue">
+                Montag – Freitag, 09:00 – 18:00 Uhr
+              </span>
+            </div>
+            
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.addressLabel">Adresse</span>
+              <span class="contact-detail__value" data-i18n="contact.addressValue">
+                Kaliningrader Gebiet, Russische Föderation
+              </span>
+            </div>
+            
+            <!-- Messenger links -->
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.messengersLabel">Messenger</span>
+              <div class="messenger-links">
+                <a href="https://wa.me/49301234567" class="messenger-link" target="_blank" rel="noopener noreferrer" data-i18n="contact.whatsapp">
+                  📱 WhatsApp
+                </a>
+                <a href="https://t.me/kaliningrad_immobilien" class="messenger-link" target="_blank" rel="noopener noreferrer" data-i18n="contact.telegram">
+                  ✈️ Telegram
+                </a>
+              </div>
+            </div>
+            
+            <!-- Social media links -->
+            <div class="contact-detail">
+              <span class="contact-detail__label" data-i18n="contact.socialLabel">Social Media</span>
+              <div class="social-links">
+                <a href="https://facebook.com/kaliningrad.immobilien" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  f
+                </a>
+                <a href="https://instagram.com/kaliningrad.immobilien" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  📷
+                </a>
+                <a href="https://linkedin.com/company/kaliningrad-immobilien" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  in
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Second contact info card for balance (optional) -->
+          <div class="contact-info">
+            <h3 data-i18n="contact.officeHeading">
+              Unser Büro
+            </h3>
+            <p data-i18n="contact.officeText">
+              Besuchen Sie uns in unserem Büro im Kaliningrader Gebiet oder vereinbaren Sie einen Online-Termin für eine erste Beratung.
+            </p>
+            <img src="https://placehold.co/600x400/2C3E50/ECF0F1?text=Unser+Büro" alt="Bürogebäude in Kaliningrad" loading="lazy" style="border-radius: 8px; margin-top: 1rem;">
+          </div>
+          
+          <!-- Google Maps -->
+          <div class="contact-map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d147094.23891339468!2d20.451915!3d54.710157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e33d8d4b7c21a9%3A0x5050960016126ed3!2sKaliningrad%2C%20Kaliningrad%20Oblast%2C%20Russia!5e0!3m2!1sen!2sde!4v1234567890123!5m2!1sen!2sde" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Standort Kaliningrad auf Google Maps">
+            </iframe>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section--accent" id="consultation">
-        <div class="container consultation">
-          <div class="consultation__intro">
-            <h2 data-i18n="consult.heading">Beratung anfordern</h2>
+    <!-- Contact Form Section -->
+    <section class="section section--white" id="consultation">
+      <div class="container">
+        <div class="form-section">
+          <div class="form-section__intro">
+            <h2 data-i18n="consult.heading">
+              Beratung anfordern
+            </h2>
             <p data-i18n="consult.description">
               Senden Sie uns Ihre Kontaktdaten und kurze Angaben zum Objekt. Wir melden uns werktags innerhalb von 24 Stunden.
             </p>
           </div>
+          
+          <!-- Contact form: scripting-ready for validation and submission -->
           <form class="form" id="consultation-form" novalidate>
             <div class="form__group">
-              <label for="name" data-i18n="consult.form.nameLabel">Name</label>
-              <input id="name" name="name" type="text" required data-i18n-placeholder="consult.form.namePlaceholder" placeholder="Ihr vollständiger Name" />
+              <label for="name" data-i18n="consult.form.nameLabel">
+                Name
+              </label>
+              <input 
+                id="name" 
+                name="name" 
+                type="text" 
+                required 
+                data-i18n-placeholder="consult.form.namePlaceholder" 
+                placeholder="Ihr vollständiger Name">
             </div>
+            
             <div class="form__group">
-              <label for="email" data-i18n="consult.form.emailLabel">E-Mail</label>
-              <input id="email" name="email" type="email" required data-i18n-placeholder="consult.form.emailPlaceholder" placeholder="Ihre E-Mail-Adresse" />
+              <label for="email" data-i18n="consult.form.emailLabel">
+                E-Mail
+              </label>
+              <input 
+                id="email" 
+                name="email" 
+                type="email" 
+                required 
+                data-i18n-placeholder="consult.form.emailPlaceholder" 
+                placeholder="Ihre E-Mail-Adresse">
             </div>
+            
             <div class="form__group">
-              <label for="phone" data-i18n="consult.form.phoneLabel">Telefon</label>
-              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="consult.form.phonePlaceholder" placeholder="Ihre Telefonnummer" />
+              <label for="phone" data-i18n="consult.form.phoneLabel">
+                Telefon
+              </label>
+              <input 
+                id="phone" 
+                name="phone" 
+                type="tel" 
+                required 
+                data-i18n-placeholder="consult.form.phonePlaceholder" 
+                placeholder="Ihre Telefonnummer">
             </div>
+            
             <div class="form__group">
-              <label for="message" data-i18n="consult.form.messageLabel">Nachricht</label>
-              <textarea id="message" name="message" rows="4" required data-i18n-placeholder="consult.form.messagePlaceholder" placeholder="Beschreiben Sie Ihr Anliegen oder das Objekt."></textarea>
+              <label for="message" data-i18n="consult.form.messageLabel">
+                Nachricht
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                required 
+                data-i18n-placeholder="consult.form.messagePlaceholder" 
+                placeholder="Beschreiben Sie Ihr Anliegen oder das Objekt."></textarea>
             </div>
+            
             <div class="form__group form__group--checkbox">
-              <input id="consent" name="consent" type="checkbox" required />
-              <label for="consent" data-i18n="consult.form.consent">Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.</label>
+              <input 
+                id="consent" 
+                name="consent" 
+                type="checkbox" 
+                required>
+              <label for="consent" data-i18n="consult.form.consent">
+                Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.
+              </label>
             </div>
-            <button class="button button--wide" type="submit" data-i18n="consult.form.submit">Nachricht senden</button>
+            
+            <button class="button button--primary button--wide" type="submit" data-i18n="consult.form.submit">
+              Nachricht senden
+            </button>
+            
+            <!-- Form response message area -->
             <p class="form__response" id="form-response" role="status" aria-live="polite"></p>
           </form>
         </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p data-i18n="footer.rights">© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.</p>
       </div>
-    </footer>
-  </body>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__content">
+        <p class="footer__text" data-i18n="footer.rights">
+          © 2024 Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.
+        </p>
+        
+        <ul class="footer__links">
+          <li><a href="#home" class="footer__link" data-i18n="footer.linkHome">Home</a></li>
+          <li><a href="#services" class="footer__link" data-i18n="footer.linkServices">Leistungen</a></li>
+          <li><a href="#about" class="footer__link" data-i18n="footer.linkAbout">Über uns</a></li>
+          <li><a href="#contact" class="footer__link" data-i18n="footer.linkContact">Kontakt</a></li>
+        </ul>
+        
+        <p class="footer__text" data-i18n="footer.disclaimer">
+          Alle Informationen dienen ausschließlich zu Informationszwecken und stellen keine Rechts- oder Steuerberatung dar.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript will be added in subsequent ticket -->
+  <!-- script.js placeholder removed per ticket requirements -->
+
+</body>
 </html>
