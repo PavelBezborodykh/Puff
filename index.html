@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Verlässliche Immobilienunterstützung im Kaliningrader Gebiet" data-i18n-meta="page.description" />
     <title>Kaliningrad Immobilienbegleitung</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="contact-bar">
@@ -24,11 +24,17 @@
             <span class="contact-entry__value" data-i18n="contact.hoursValue">Montag – Freitag, 09:00 – 18:00 Uhr</span>
           </div>
         </div>
+        <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false" data-i18n-aria-label="nav.menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
           <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
           <div class="language-switcher__buttons">
             <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
             <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="language-button" data-lang="ru" aria-pressed="false">RU</button>
           </div>
         </div>
       </div>
@@ -111,6 +117,67 @@
         </div>
       </section>
 
+      <section class="section section--light" id="testimonials">
+        <div class="container">
+          <h2 data-i18n="testimonials.heading">Was unsere Klient:innen sagen</h2>
+          <div class="testimonials-grid">
+            <article class="testimonial-card" data-animate="fade-in">
+              <p class="testimonial-card__text" data-i18n="testimonials.client1.text">"Professionelle Begleitung vom ersten Gespräch bis zur Schlüsselübergabe. Sehr empfehlenswert!"</p>
+              <p class="testimonial-card__author" data-i18n="testimonials.client1.author">— Maria K., Berlin</p>
+            </article>
+            <article class="testimonial-card" data-animate="fade-in">
+              <p class="testimonial-card__text" data-i18n="testimonials.client2.text">"Transparente Kommunikation und faire Preise. Wir fühlten uns rundum gut betreut."</p>
+              <p class="testimonial-card__author" data-i18n="testimonials.client2.author">— Thomas R., München</p>
+            </article>
+            <article class="testimonial-card" data-animate="fade-in">
+              <p class="testimonial-card__text" data-i18n="testimonials.client3.text">"Dank der lokalen Expertise konnten wir alle bürokratischen Hürden problemlos meistern."</p>
+              <p class="testimonial-card__author" data-i18n="testimonials.client3.author">— Anna S., Hamburg</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <h2 data-i18n="faq.heading">Häufige Fragen</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question1.q">Wie lange dauert eine typische Transaktion?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p data-i18n="faq.question1.a">Die Dauer variiert je nach Komplexität, liegt aber typischerweise zwischen 4 und 8 Wochen.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question2.q">Welche Dokumente benötige ich?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p data-i18n="faq.question2.a">In der Regel einen gültigen Reisepass, Nachweis über finanzielle Mittel und bei Bedarf eine apostillierte Vollmacht.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question3.q">Muss ich persönlich nach Kaliningrad reisen?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+              <div class="faq-item__answer" hidden>
+                <p data-i18n="faq.question3.a">Nicht zwingend – viele Schritte können remote erfolgen. Für den Vertragsabschluss ist jedoch meist eine Anreise erforderlich.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section section--accent" id="consultation">
         <div class="container consultation">
           <div class="consultation__intro">
@@ -145,6 +212,19 @@
           </form>
         </div>
       </section>
+
+      <section class="section" id="location">
+        <div class="container">
+          <h2 data-i18n="location.heading">Unser Standort</h2>
+          <p class="section__subtitle" data-i18n="location.intro">Wir sind im Kaliningrader Gebiet vor Ort und stehen Ihnen zur Verfügung.</p>
+          <div class="map-container" data-lazy-map>
+            <div class="map-placeholder">
+              <button class="map-placeholder__button" data-i18n="location.loadMap">Karte laden</button>
+              <p class="map-placeholder__note" data-i18n="location.mapNote">Durch Klicken wird eine Verbindung zu externen Kartendiensten hergestellt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -152,5 +232,846 @@
         <p data-i18n="footer.rights">© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
+
+    <script>
+      // =============================================================================
+      // MULTILINGUAL SUPPORT - Translation dictionaries for DE/EN/RU
+      // =============================================================================
+      const translations = {
+        de: {
+          "page.title": "Kaliningrad Immobilienbegleitung",
+          "page.description": "Verlässliche Immobilienunterstützung im Kaliningrader Gebiet",
+          "nav.menuToggle": "Menü öffnen",
+          "language.switcherLabel": "Sprache",
+          "contact.phoneLabel": "Telefon",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "E-Mail",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Sprechzeiten",
+          "contact.hoursValue": "Montag – Freitag, 09:00 – 18:00 Uhr",
+          "contact.addressLabel": "Standort",
+          "contact.addressValue": "Kaliningrader Gebiet, Russische Föderation",
+          "contactInfo.heading": "Ihr direkter Draht zu uns",
+          "contactInfo.text": "Kontaktieren Sie uns für eine erste Einschätzung Ihres Vorhabens.",
+          "hero.title": "Verlässliche Immobilienunterstützung im Kaliningrader Gebiet",
+          "hero.subtitle": "Wir begleiten Sie durch jeden Schritt Ihrer Immobilieninvestition – vom ersten Vertrag bis zur sicheren Übergabe.",
+          "hero.point1": "Verständliche Beratung für deutsche und europäische Klient:innen",
+          "hero.point2": "Prüfung und Erstellung rechtssicherer Kaufunterlagen",
+          "hero.point3": "Betreuung vor Ort mit lokalen Expert:innen",
+          "hero.button": "Beratung anfordern",
+          "about.heading": "Über uns",
+          "about.paragraph1": "Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.",
+          "about.paragraph2": "Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.",
+          "about.listTitle": "Was uns auszeichnet",
+          "about.point1": "Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen",
+          "about.point2": "Klares Kostenmodell ohne versteckte Gebühren",
+          "about.point3": "Persönliche Betreuung – telefonisch, online oder vor Ort",
+          "services.heading": "Unsere Leistungen",
+          "services.intro": "Wir übernehmen die vollständige Vorbereitung Ihrer Immobilientransaktion.",
+          "services.contract.title": "Vertragsvorbereitung",
+          "services.contract.text": "Ausarbeitung und Prüfung von Kauf- und Mietverträgen nach deutschen und russischen Standards.",
+          "services.documents.title": "Dokumentenservice",
+          "services.documents.text": "Beschaffung und Übersetzung aller notwendigen Unterlagen für Behörden und Banken.",
+          "services.transaction.title": "Transaktionsbetreuung",
+          "services.transaction.text": "Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.",
+          "testimonials.heading": "Was unsere Klient:innen sagen",
+          "testimonials.client1.text": "\"Professionelle Begleitung vom ersten Gespräch bis zur Schlüsselübergabe. Sehr empfehlenswert!\"",
+          "testimonials.client1.author": "— Maria K., Berlin",
+          "testimonials.client2.text": "\"Transparente Kommunikation und faire Preise. Wir fühlten uns rundum gut betreut.\"",
+          "testimonials.client2.author": "— Thomas R., München",
+          "testimonials.client3.text": "\"Dank der lokalen Expertise konnten wir alle bürokratischen Hürden problemlos meistern.\"",
+          "testimonials.client3.author": "— Anna S., Hamburg",
+          "faq.heading": "Häufige Fragen",
+          "faq.question1.q": "Wie lange dauert eine typische Transaktion?",
+          "faq.question1.a": "Die Dauer variiert je nach Komplexität, liegt aber typischerweise zwischen 4 und 8 Wochen.",
+          "faq.question2.q": "Welche Dokumente benötige ich?",
+          "faq.question2.a": "In der Regel einen gültigen Reisepass, Nachweis über finanzielle Mittel und bei Bedarf eine apostillierte Vollmacht.",
+          "faq.question3.q": "Muss ich persönlich nach Kaliningrad reisen?",
+          "faq.question3.a": "Nicht zwingend – viele Schritte können remote erfolgen. Für den Vertragsabschluss ist jedoch meist eine Anreise erforderlich.",
+          "location.heading": "Unser Standort",
+          "location.intro": "Wir sind im Kaliningrader Gebiet vor Ort und stehen Ihnen zur Verfügung.",
+          "location.loadMap": "Karte laden",
+          "location.mapNote": "Durch Klicken wird eine Verbindung zu externen Kartendiensten hergestellt.",
+          "consult.heading": "Beratung anfordern",
+          "consult.description": "Senden Sie uns Ihre Kontaktdaten und kurze Angaben zum Objekt. Wir melden uns werktags innerhalb von 24 Stunden.",
+          "consult.form.nameLabel": "Name",
+          "consult.form.namePlaceholder": "Ihr vollständiger Name",
+          "consult.form.emailLabel": "E-Mail",
+          "consult.form.emailPlaceholder": "Ihre E-Mail-Adresse",
+          "consult.form.phoneLabel": "Telefon",
+          "consult.form.phonePlaceholder": "Ihre Telefonnummer",
+          "consult.form.messageLabel": "Nachricht",
+          "consult.form.messagePlaceholder": "Beschreiben Sie Ihr Anliegen oder das Objekt.",
+          "consult.form.consent": "Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.",
+          "consult.form.submit": "Nachricht senden",
+          "consult.form.success": "Vielen Dank! Wir melden uns in Kürze.",
+          "consult.form.error": "Bitte füllen Sie alle Pflichtfelder korrekt aus.",
+          "consult.form.errorName": "Bitte geben Sie Ihren vollständigen Namen ein.",
+          "consult.form.errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+          "consult.form.errorPhone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+          "consult.form.errorMessage": "Bitte beschreiben Sie Ihr Anliegen.",
+          "consult.form.errorConsent": "Bitte stimmen Sie der Datenverarbeitung zu.",
+          "footer.rights": "© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten."
+        },
+        en: {
+          "page.title": "Kaliningrad Real Estate Support",
+          "page.description": "Reliable real estate assistance in the Kaliningrad region",
+          "nav.menuToggle": "Open menu",
+          "language.switcherLabel": "Language",
+          "contact.phoneLabel": "Phone",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "Email",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Office hours",
+          "contact.hoursValue": "Monday – Friday, 9:00 – 18:00",
+          "contact.addressLabel": "Location",
+          "contact.addressValue": "Kaliningrad region, Russian Federation",
+          "contactInfo.heading": "Your direct line to us",
+          "contactInfo.text": "Get in touch for an initial assessment of your plans.",
+          "hero.title": "Reliable real estate assistance in the Kaliningrad region",
+          "hero.subtitle": "We accompany you through every step of your property investment – from the first draft to a safe handover.",
+          "hero.point1": "Clear guidance for clients from Germany and across the EU",
+          "hero.point2": "Drafting and reviewing compliant purchase documentation",
+          "hero.point3": "On-site coordination with trusted local specialists",
+          "hero.button": "Request consultation",
+          "about.heading": "About us",
+          "about.paragraph1": "Our dedicated team combines German-quality service with local expertise in the Kaliningrad region.",
+          "about.paragraph2": "We keep the process transparent, explain every step in plain language, and keep you informed.",
+          "about.listTitle": "Why clients choose us",
+          "about.point1": "Multilingual professionals experienced in EU–Russia transactions",
+          "about.point2": "Clear pricing with no hidden fees",
+          "about.point3": "Personal support – by phone, online, or on location",
+          "services.heading": "What we do",
+          "services.intro": "We take care of the complete preparation of your property transaction.",
+          "services.contract.title": "Contract preparation",
+          "services.contract.text": "Drafting and verifying purchase and rental contracts compliant with German and Russian regulations.",
+          "services.documents.title": "Documentation",
+          "services.documents.text": "Collecting and translating all required papers for authorities and financial institutions.",
+          "services.transaction.title": "Transaction support",
+          "services.transaction.text": "Coordinating with owners, notaries, and authorities until the deal is successfully closed.",
+          "testimonials.heading": "What our clients say",
+          "testimonials.client1.text": "\"Professional support from our first call to the final handover. Highly recommended!\"",
+          "testimonials.client1.author": "— Maria K., Berlin",
+          "testimonials.client2.text": "\"Transparent communication and fair pricing. We felt well taken care of throughout.\"",
+          "testimonials.client2.author": "— Thomas R., Munich",
+          "testimonials.client3.text": "\"Thanks to their local expertise, we navigated all bureaucratic hurdles smoothly.\"",
+          "testimonials.client3.author": "— Anna S., Hamburg",
+          "faq.heading": "Frequently asked questions",
+          "faq.question1.q": "How long does a typical transaction take?",
+          "faq.question1.a": "Duration varies by complexity, but typically ranges from 4 to 8 weeks.",
+          "faq.question2.q": "What documents do I need?",
+          "faq.question2.a": "Usually a valid passport, proof of funds, and if needed, an apostilled power of attorney.",
+          "faq.question3.q": "Do I need to travel to Kaliningrad in person?",
+          "faq.question3.a": "Not necessarily – many steps can be handled remotely. However, contract signing usually requires your presence.",
+          "location.heading": "Our location",
+          "location.intro": "We are located in the Kaliningrad region and available to assist you.",
+          "location.loadMap": "Load map",
+          "location.mapNote": "Clicking will establish a connection to external map services.",
+          "consult.heading": "Request a consultation",
+          "consult.description": "Share your contact details and a short description of the property. We respond within one business day.",
+          "consult.form.nameLabel": "Name",
+          "consult.form.namePlaceholder": "Your full name",
+          "consult.form.emailLabel": "Email",
+          "consult.form.emailPlaceholder": "Your email address",
+          "consult.form.phoneLabel": "Phone",
+          "consult.form.phonePlaceholder": "Your phone number",
+          "consult.form.messageLabel": "Message",
+          "consult.form.messagePlaceholder": "Describe your request or property details.",
+          "consult.form.consent": "I agree that my data will be used to process this consultation request.",
+          "consult.form.submit": "Send message",
+          "consult.form.success": "Thank you! We will contact you shortly.",
+          "consult.form.error": "Please complete all required fields correctly.",
+          "consult.form.errorName": "Please enter your full name.",
+          "consult.form.errorEmail": "Please enter a valid email address.",
+          "consult.form.errorPhone": "Please enter a valid phone number.",
+          "consult.form.errorMessage": "Please describe your request.",
+          "consult.form.errorConsent": "Please agree to data processing.",
+          "footer.rights": "© Kaliningrad Real Estate Support. All rights reserved."
+        },
+        ru: {
+          "page.title": "Сопровождение недвижимости в Калининграде",
+          "page.description": "Надежная поддержка в сделках с недвижимостью в Калининградской области",
+          "nav.menuToggle": "Открыть меню",
+          "language.switcherLabel": "Язык",
+          "contact.phoneLabel": "Телефон",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "Эл. почта",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Часы работы",
+          "contact.hoursValue": "Понедельник – Пятница, 09:00 – 18:00",
+          "contact.addressLabel": "Расположение",
+          "contact.addressValue": "Калининградская область, Российская Федерация",
+          "contactInfo.heading": "Прямая связь с нами",
+          "contactInfo.text": "Свяжитесь с нами для первичной оценки ваших планов.",
+          "hero.title": "Надежное сопровождение сделок с недвижимостью в Калининградской области",
+          "hero.subtitle": "Мы сопровождаем вас на каждом этапе инвестиций в недвижимость – от первого договора до безопасной передачи.",
+          "hero.point1": "Понятная консультация для клиентов из Германии и стран ЕС",
+          "hero.point2": "Проверка и оформление юридически грамотных документов на покупку",
+          "hero.point3": "Сопровождение на месте с привлечением местных экспертов",
+          "hero.button": "Запросить консультацию",
+          "about.heading": "О нас",
+          "about.paragraph1": "Наша специализированная команда сочетает немецкое качество обслуживания с местной экспертизой в Калининградской области.",
+          "about.paragraph2": "Мы работаем прозрачно, объясняем каждый шаг понятным языком и держим вас в курсе событий.",
+          "about.listTitle": "Наши преимущества",
+          "about.point1": "Многоязычные специалисты с опытом сделок ЕС–Россия",
+          "about.point2": "Прозрачная ценовая модель без скрытых комиссий",
+          "about.point3": "Персональная поддержка – по телефону, онлайн или на месте",
+          "services.heading": "Наши услуги",
+          "services.intro": "Мы берем на себя полную подготовку вашей сделки с недвижимостью.",
+          "services.contract.title": "Подготовка договоров",
+          "services.contract.text": "Разработка и проверка договоров купли-продажи и аренды по немецким и российским стандартам.",
+          "services.documents.title": "Документальный сервис",
+          "services.documents.text": "Получение и перевод всех необходимых документов для органов власти и банков.",
+          "services.transaction.title": "Сопровождение сделок",
+          "services.transaction.text": "Координация с собственниками, нотариусами и органами власти до успешного завершения.",
+          "testimonials.heading": "Отзывы наших клиентов",
+          "testimonials.client1.text": "\"Профессиональное сопровождение от первой встречи до передачи ключей. Очень рекомендую!\"",
+          "testimonials.client1.author": "— Мария К., Берлин",
+          "testimonials.client2.text": "\"Прозрачная коммуникация и честные цены. Мы чувствовали себя в надежных руках.\"",
+          "testimonials.client2.author": "— Томас Р., Мюнхен",
+          "testimonials.client3.text": "\"Благодаря местной экспертизе мы смогли преодолеть все бюрократические препятствия без проблем.\"",
+          "testimonials.client3.author": "— Анна С., Гамбург",
+          "faq.heading": "Часто задаваемые вопросы",
+          "faq.question1.q": "Сколько времени занимает типичная сделка?",
+          "faq.question1.a": "Срок варьируется в зависимости от сложности, но обычно составляет от 4 до 8 недель.",
+          "faq.question2.q": "Какие документы мне понадобятся?",
+          "faq.question2.a": "Как правило, действительный паспорт, подтверждение финансовых средств и при необходимости апостилированная доверенность.",
+          "faq.question3.q": "Нужно ли мне лично приезжать в Калининград?",
+          "faq.question3.a": "Необязательно – многие шаги можно выполнить удаленно. Однако для подписания договора обычно требуется личное присутствие.",
+          "location.heading": "Наше расположение",
+          "location.intro": "Мы находимся в Калининградской области и готовы помочь вам.",
+          "location.loadMap": "Загрузить карту",
+          "location.mapNote": "При нажатии будет установлено соединение с внешними картографическими сервисами.",
+          "consult.heading": "Запросить консультацию",
+          "consult.description": "Отправьте нам свои контактные данные и краткое описание объекта. Мы ответим в течение одного рабочего дня.",
+          "consult.form.nameLabel": "Имя",
+          "consult.form.namePlaceholder": "Ваше полное имя",
+          "consult.form.emailLabel": "Эл. почта",
+          "consult.form.emailPlaceholder": "Ваш адрес электронной почты",
+          "consult.form.phoneLabel": "Телефон",
+          "consult.form.phonePlaceholder": "+7 (___) ___-__-__",
+          "consult.form.messageLabel": "Сообщение",
+          "consult.form.messagePlaceholder": "Опишите ваш запрос или детали объекта.",
+          "consult.form.consent": "Я согласен на обработку моих данных для целей этой консультации.",
+          "consult.form.submit": "Отправить сообщение",
+          "consult.form.success": "Спасибо! Мы свяжемся с вами в ближайшее время.",
+          "consult.form.error": "Пожалуйста, заполните все обязательные поля правильно.",
+          "consult.form.errorName": "Пожалуйста, введите ваше полное имя.",
+          "consult.form.errorEmail": "Пожалуйста, введите действительный адрес электронной почты.",
+          "consult.form.errorPhone": "Пожалуйста, введите действительный номер телефона.",
+          "consult.form.errorMessage": "Пожалуйста, опишите ваш запрос.",
+          "consult.form.errorConsent": "Пожалуйста, согласитесь на обработку данных.",
+          "footer.rights": "© Сопровождение недвижимости в Калининграде. Все права защищены."
+        }
+      };
+
+      // =============================================================================
+      // GLOBAL STATE & CACHED DOM REFERENCES
+      // =============================================================================
+      let currentLanguage = 'de';
+      let isHeaderSticky = false;
+      let ticking = false;
+
+      // Cache DOM references for performance
+      const dom = {};
+
+      // =============================================================================
+      // UTILITY FUNCTIONS
+      // =============================================================================
+
+      // Debounce function for performance optimization on scroll/resize events
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      // Request animation frame throttle for scroll handlers
+      function requestTick(callback) {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            callback();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      // =============================================================================
+      // LANGUAGE MANAGEMENT - localStorage persistence & browser fallback
+      // =============================================================================
+
+      function initializeLanguage() {
+        // Check localStorage first for manual selection
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && translations[savedLang]) {
+          updateLanguage(savedLang, false);
+          return;
+        }
+
+        // Fallback to browser language detection
+        const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        let detectedLang = 'de';
+        
+        if (browserLang.startsWith('ru')) {
+          detectedLang = 'ru';
+        } else if (browserLang.startsWith('en')) {
+          detectedLang = 'en';
+        } else if (browserLang.startsWith('de')) {
+          detectedLang = 'de';
+        }
+
+        updateLanguage(detectedLang, false);
+      }
+
+      function updateLanguage(lang, saveToStorage = true) {
+        if (!translations[lang]) {
+          lang = 'de';
+        }
+        
+        currentLanguage = lang;
+        
+        // Persist to localStorage if manual selection
+        if (saveToStorage) {
+          localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Update HTML lang attribute for accessibility
+        document.documentElement.lang = lang;
+
+        // Apply all translations
+        applyTranslations(lang);
+        updateDocumentTitle(lang);
+        updateDocumentDescription(lang);
+        updateLanguageButtons(lang);
+      }
+
+      function applyTranslations(lang) {
+        const dictionary = translations[lang];
+        if (!dictionary) return;
+
+        // Translate text content elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.dataset.i18n;
+          const translation = dictionary[key];
+          if (translation) {
+            element.textContent = translation;
+          }
+        });
+
+        // Translate placeholder attributes
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.dataset.i18nPlaceholder;
+          const translation = dictionary[key];
+          if (translation) {
+            element.setAttribute('placeholder', translation);
+          }
+        });
+
+        // Translate aria-label attributes
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+          const key = element.dataset.i18nAriaLabel;
+          const translation = dictionary[key];
+          if (translation) {
+            element.setAttribute('aria-label', translation);
+          }
+        });
+
+        // Update form response messages if present
+        const responseEl = dom.formResponse;
+        if (responseEl && responseEl.dataset.messageType) {
+          const responseKey = `consult.form.${responseEl.dataset.messageType}`;
+          const translation = dictionary[responseKey];
+          if (translation) {
+            responseEl.textContent = translation;
+          }
+        }
+      }
+
+      function updateDocumentTitle(lang) {
+        const dictionary = translations[lang];
+        if (dictionary && dictionary['page.title']) {
+          document.title = dictionary['page.title'];
+        }
+      }
+
+      function updateDocumentDescription(lang) {
+        const dictionary = translations[lang];
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc && dictionary && dictionary['page.description']) {
+          metaDesc.setAttribute('content', dictionary['page.description']);
+        }
+      }
+
+      function updateLanguageButtons(activeLang) {
+        document.querySelectorAll('.language-button').forEach(button => {
+          const isActive = button.dataset.lang === activeLang;
+          button.setAttribute('aria-pressed', String(isActive));
+        });
+      }
+
+      // =============================================================================
+      // STICKY HEADER - Adds class on scroll for visual feedback
+      // =============================================================================
+
+      function handleStickyHeader() {
+        const header = dom.header;
+        if (!header) return;
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const shouldBeSticky = scrollTop > 100;
+
+        if (shouldBeSticky !== isHeaderSticky) {
+          isHeaderSticky = shouldBeSticky;
+          header.classList.toggle('header--sticky', isHeaderSticky);
+        }
+      }
+
+      // =============================================================================
+      // MOBILE MENU TOGGLE - Responsive navigation
+      // =============================================================================
+
+      function initMobileMenu() {
+        const toggle = dom.mobileMenuToggle;
+        const details = dom.contactBarDetails;
+        const switcher = dom.languageSwitcher;
+        
+        if (!toggle) return;
+
+        toggle.addEventListener('click', () => {
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          const newState = !isExpanded;
+          
+          toggle.setAttribute('aria-expanded', String(newState));
+          toggle.classList.toggle('active', newState);
+          
+          if (details) details.classList.toggle('mobile-open', newState);
+          if (switcher) switcher.classList.toggle('mobile-open', newState);
+
+          // Update aria-label
+          const dictionary = translations[currentLanguage];
+          const labelKey = newState ? 'nav.menuClose' : 'nav.menuToggle';
+          const label = dictionary[labelKey] || dictionary['nav.menuToggle'];
+          toggle.setAttribute('aria-label', label);
+        });
+      }
+
+      // =============================================================================
+      // SMOOTH SCROLLING - Enhanced anchor link navigation
+      // =============================================================================
+
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || !href) return;
+
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+              e.preventDefault();
+              
+              // Close mobile menu if open
+              const toggle = dom.mobileMenuToggle;
+              if (toggle && toggle.getAttribute('aria-expanded') === 'true') {
+                toggle.click();
+              }
+
+              // Smooth scroll with offset for sticky header
+              const headerHeight = dom.header ? dom.header.offsetHeight : 0;
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+
+              // Focus management for accessibility
+              targetElement.setAttribute('tabindex', '-1');
+              targetElement.focus();
+              targetElement.addEventListener('blur', () => {
+                targetElement.removeAttribute('tabindex');
+              }, { once: true });
+            }
+          });
+        });
+      }
+
+      // =============================================================================
+      // TESTIMONIALS REVEAL ANIMATIONS - Intersection Observer for fade-in
+      // =============================================================================
+
+      function initTestimonialsAnimation() {
+        const testimonials = document.querySelectorAll('[data-animate="fade-in"]');
+        if (!testimonials.length || !window.IntersectionObserver) return;
+
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animated');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        testimonials.forEach(testimonial => {
+          observer.observe(testimonial);
+        });
+      }
+
+      // =============================================================================
+      // FAQ ACCORDION - Keyboard accessible, smooth expand/collapse
+      // =============================================================================
+
+      function initFAQAccordion() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-item__question');
+          const answer = item.querySelector('.faq-item__answer');
+          
+          if (!question || !answer) return;
+
+          question.addEventListener('click', () => {
+            const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            
+            // Close other open items (optional - remove to allow multiple open)
+            faqItems.forEach(otherItem => {
+              if (otherItem !== item) {
+                const otherQuestion = otherItem.querySelector('.faq-item__question');
+                const otherAnswer = otherItem.querySelector('.faq-item__answer');
+                if (otherQuestion && otherAnswer) {
+                  otherQuestion.setAttribute('aria-expanded', 'false');
+                  otherAnswer.hidden = true;
+                  otherItem.classList.remove('active');
+                }
+              }
+            });
+
+            // Toggle current item
+            question.setAttribute('aria-expanded', String(!isExpanded));
+            answer.hidden = isExpanded;
+            item.classList.toggle('active', !isExpanded);
+          });
+
+          // Keyboard navigation
+          question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              question.click();
+            }
+          });
+        });
+      }
+
+      // =============================================================================
+      // LAZY MAP LOADING - Load external map only when user clicks
+      // =============================================================================
+
+      function initLazyMap() {
+        const mapContainer = document.querySelector('[data-lazy-map]');
+        if (!mapContainer) return;
+
+        const loadButton = mapContainer.querySelector('.map-placeholder__button');
+        if (!loadButton) return;
+
+        loadButton.addEventListener('click', () => {
+          // Replace placeholder with iframe (example for OpenStreetMap)
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://www.openstreetmap.org/export/embed.html?bbox=20.4,54.6,20.6,54.8&layer=mapnik&marker=54.7,20.5';
+          iframe.width = '100%';
+          iframe.height = '450';
+          iframe.style.border = '0';
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('loading', 'lazy');
+          iframe.setAttribute('title', translations[currentLanguage]['location.heading']);
+
+          mapContainer.innerHTML = '';
+          mapContainer.appendChild(iframe);
+        });
+      }
+
+      // =============================================================================
+      // SERVICE & TESTIMONIAL HOVER MICRO-ANIMATIONS - CSS-based with JS enhancement
+      // =============================================================================
+
+      function initHoverAnimations() {
+        const serviceCards = document.querySelectorAll('.service-card');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+        [...serviceCards, ...testimonialCards].forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+          });
+
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+          });
+
+          // Respect reduced motion preferences
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            card.style.transform = 'none';
+          }
+        });
+      }
+
+      // =============================================================================
+      // ENHANCED FORM VALIDATION - Custom messages, phone masking, accessibility
+      // =============================================================================
+
+      function initFormValidation() {
+        const form = dom.consultationForm;
+        const responseEl = dom.formResponse;
+        
+        if (!form || !responseEl) return;
+
+        const nameInput = form.querySelector('#name');
+        const emailInput = form.querySelector('#email');
+        const phoneInput = form.querySelector('#phone');
+        const messageInput = form.querySelector('#message');
+        const consentInput = form.querySelector('#consent');
+
+        // Phone masking for Russian numbers
+        if (phoneInput) {
+          phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Only apply Russian mask if language is RU or number starts with 7
+            if (currentLanguage === 'ru' || value.startsWith('7')) {
+              if (value.length > 0 && !value.startsWith('7')) {
+                value = '7' + value;
+              }
+              
+              let formatted = '+7';
+              if (value.length > 1) {
+                formatted += ' (' + value.substring(1, 4);
+              }
+              if (value.length >= 5) {
+                formatted += ') ' + value.substring(4, 7);
+              }
+              if (value.length >= 8) {
+                formatted += '-' + value.substring(7, 9);
+              }
+              if (value.length >= 10) {
+                formatted += '-' + value.substring(9, 11);
+              }
+              
+              e.target.value = formatted;
+            }
+          });
+
+          phoneInput.addEventListener('keydown', (e) => {
+            // Allow: backspace, delete, tab, escape, enter
+            if ([46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1 ||
+                // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+                (e.keyCode === 65 && e.ctrlKey === true) ||
+                (e.keyCode === 67 && e.ctrlKey === true) ||
+                (e.keyCode === 86 && e.ctrlKey === true) ||
+                (e.keyCode === 88 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+              return;
+            }
+            // Ensure that it is a number and stop keypress if not
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+              e.preventDefault();
+            }
+          });
+        }
+
+        // Custom validation messages per field
+        function showFieldError(input, messageKey) {
+          const dictionary = translations[currentLanguage];
+          const message = dictionary[messageKey] || dictionary['consult.form.error'];
+          
+          input.classList.add('error');
+          input.setCustomValidity(message);
+          
+          // Create or update error message element
+          let errorEl = input.parentElement.querySelector('.field-error');
+          if (!errorEl) {
+            errorEl = document.createElement('span');
+            errorEl.className = 'field-error';
+            errorEl.setAttribute('role', 'alert');
+            input.parentElement.appendChild(errorEl);
+          }
+          errorEl.textContent = message;
+        }
+
+        function clearFieldError(input) {
+          input.classList.remove('error');
+          input.setCustomValidity('');
+          
+          const errorEl = input.parentElement.querySelector('.field-error');
+          if (errorEl) {
+            errorEl.remove();
+          }
+        }
+
+        // Real-time validation on input
+        [nameInput, emailInput, phoneInput, messageInput, consentInput].forEach(input => {
+          if (!input) return;
+
+          input.addEventListener('input', () => {
+            if (input.classList.contains('error')) {
+              clearFieldError(input);
+            }
+          });
+
+          input.addEventListener('blur', () => {
+            validateField(input);
+          });
+        });
+
+        function validateField(input) {
+          if (!input.required) return true;
+
+          if (input.type === 'checkbox') {
+            if (!input.checked) {
+              showFieldError(input, 'consult.form.errorConsent');
+              return false;
+            }
+          } else if (!input.value.trim()) {
+            let errorKey = 'consult.form.error';
+            if (input.name === 'name') errorKey = 'consult.form.errorName';
+            else if (input.name === 'email') errorKey = 'consult.form.errorEmail';
+            else if (input.name === 'phone') errorKey = 'consult.form.errorPhone';
+            else if (input.name === 'message') errorKey = 'consult.form.errorMessage';
+            
+            showFieldError(input, errorKey);
+            return false;
+          } else if (input.type === 'email' && !isValidEmail(input.value)) {
+            showFieldError(input, 'consult.form.errorEmail');
+            return false;
+          } else if (input.type === 'tel' && input.value.length < 10) {
+            showFieldError(input, 'consult.form.errorPhone');
+            return false;
+          }
+
+          clearFieldError(input);
+          return true;
+        }
+
+        function isValidEmail(email) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(email);
+        }
+
+        // Form submission with enhanced feedback
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          // Validate all fields
+          const fields = [nameInput, emailInput, phoneInput, messageInput, consentInput];
+          let isValid = true;
+
+          fields.forEach(field => {
+            if (field && !validateField(field)) {
+              isValid = false;
+            }
+          });
+
+          if (!isValid) {
+            showFormMessage('error');
+            // Focus first error field for accessibility
+            const firstError = form.querySelector('.error');
+            if (firstError) {
+              firstError.focus();
+            }
+            return;
+          }
+
+          // Success feedback
+          showFormMessage('success');
+          form.reset();
+
+          // Clear all field errors
+          fields.forEach(field => {
+            if (field) clearFieldError(field);
+          });
+
+          // Focus on success message for screen readers
+          setTimeout(() => {
+            responseEl.focus();
+          }, 100);
+        });
+
+        function showFormMessage(type) {
+          const dictionary = translations[currentLanguage];
+          const messageKey = type === 'success' ? 'consult.form.success' : 'consult.form.error';
+          const message = dictionary[messageKey];
+
+          responseEl.textContent = message;
+          responseEl.className = 'form__response ' + type;
+          responseEl.dataset.messageType = type;
+          responseEl.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        }
+      }
+
+      // =============================================================================
+      // INITIALIZATION - DOMContentLoaded
+      // =============================================================================
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // Cache DOM references for performance
+        dom.header = document.querySelector('.contact-bar');
+        dom.mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        dom.contactBarDetails = document.querySelector('.contact-bar__details');
+        dom.languageSwitcher = document.querySelector('.language-switcher');
+        dom.consultationForm = document.querySelector('#consultation-form');
+        dom.formResponse = document.querySelector('#form-response');
+
+        // Initialize language system
+        initializeLanguage();
+
+        // Language switcher buttons
+        document.querySelectorAll('.language-button').forEach(button => {
+          button.addEventListener('click', () => {
+            const selectedLang = button.dataset.lang;
+            updateLanguage(selectedLang, true);
+          });
+        });
+
+        // Initialize all interactive features
+        initMobileMenu();
+        initSmoothScroll();
+        initTestimonialsAnimation();
+        initFAQAccordion();
+        initLazyMap();
+        initHoverAnimations();
+        initFormValidation();
+
+        // Scroll handler with debouncing and RAF throttling
+        const handleScroll = () => {
+          requestTick(handleStickyHeader);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Handle window resize with debouncing
+        const handleResize = debounce(() => {
+          // Re-initialize animations if needed
+          initTestimonialsAnimation();
+        }, 250);
+
+        window.addEventListener('resize', handleResize, { passive: true });
+
+        // Log initialization complete (remove in production)
+        console.log('✓ All interactive features initialized');
+      });
+    </script>
   </body>
 </html>
