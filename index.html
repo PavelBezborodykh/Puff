@@ -1,68 +1,114 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kaliningrad Immobilienbegleitung</title>
+    <title>Сопровождение недвижимости в Калининграде</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body data-theme="light">
     <header class="contact-bar">
       <div class="container contact-bar__content">
         <div class="contact-bar__details">
           <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.phoneLabel">Telefon</span>
-            <a class="contact-entry__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
+            <span class="contact-entry__label" data-i18n="contact.phoneLabel">Телефон</span>
+            <a class="contact-entry__value" href="tel:+79012345678" data-i18n="contact.phoneValue">+7 901 234-56-78</a>
           </div>
           <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.emailLabel">E-Mail</span>
+            <span class="contact-entry__label" data-i18n="contact.emailLabel">E-mail</span>
             <a class="contact-entry__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
           </div>
           <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.hoursLabel">Sprechzeiten</span>
-            <span class="contact-entry__value" data-i18n="contact.hoursValue">Montag – Freitag, 09:00 – 18:00 Uhr</span>
+            <span class="contact-entry__label" data-i18n="contact.hoursLabel">Время работы</span>
+            <span class="contact-entry__value" data-i18n="contact.hoursValue">Понедельник – Пятница, 09:00 – 18:00</span>
           </div>
         </div>
-        <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
-          <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
-          <div class="language-switcher__buttons">
-            <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
-            <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
+        <div class="header-controls">
+          <div class="language-switcher" role="group" aria-label="Язык" data-i18n-aria-label="language.switcherLabel">
+            <span class="language-switcher__label" data-i18n="language.switcherLabel">Язык</span>
+            <div class="language-switcher__buttons">
+              <button type="button" class="language-button" data-lang="ru" aria-pressed="true">RU</button>
+              <button type="button" class="language-button" data-lang="de" aria-pressed="false">DE</button>
+              <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
           </div>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" data-i18n-aria-label="theme.toggleLabel">
+            <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          </button>
         </div>
       </div>
     </header>
+
+    <nav class="nav" id="main-nav">
+      <div class="container nav__content">
+        <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Открыть меню" aria-expanded="false" data-i18n-aria-label="nav.toggleLabel">
+          <span class="nav__toggle-icon" aria-hidden="true"></span>
+        </button>
+        <ul class="nav__menu" id="nav-menu" role="menu">
+          <li role="none"><a href="#home" role="menuitem" data-i18n="nav.home">Главная</a></li>
+          <li role="none"><a href="#about" role="menuitem" data-i18n="nav.about">О нас</a></li>
+          <li role="none"><a href="#services" role="menuitem" data-i18n="nav.services">Услуги</a></li>
+          <li role="none"><a href="#faq" role="menuitem" data-i18n="nav.faq">Вопросы</a></li>
+          <li role="none"><a href="#consultation" role="menuitem" data-i18n="nav.consultation">Консультация</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <main>
       <section class="hero" id="home">
         <div class="container hero__grid">
           <div class="hero__content">
-            <h1 data-i18n="hero.title">Verlässliche Immobilienunterstützung im Kaliningrader Gebiet</h1>
+            <h1 data-i18n="hero.title">Надёжное сопровождение сделок с недвижимостью в Калининграде</h1>
             <p class="hero__subtitle" data-i18n="hero.subtitle">
-              Wir begleiten Sie durch jeden Schritt Ihrer Immobilieninvestition – vom ersten Vertrag bis zur sicheren Übergabe.
+              Мы берём на себя все этапы инвестиции — от проверки документов до передачи ключей и послесервисного сопровождения.
             </p>
             <ul class="hero__highlights">
-              <li data-i18n="hero.point1">Verständliche Beratung für deutsche und europäische Klient:innen</li>
-              <li data-i18n="hero.point2">Prüfung und Erstellung rechtssicherer Kaufunterlagen</li>
-              <li data-i18n="hero.point3">Betreuung vor Ort mit lokalen Expert:innen</li>
+              <li data-i18n="hero.point1">Понятные консультации для клиентов из России, Германии и ЕС</li>
+              <li data-i18n="hero.point2">Юридически выверенные договоры и перевод документации</li>
+              <li data-i18n="hero.point3">Личная поддержка на объекте и дистанционно</li>
             </ul>
-            <a class="button button--primary" href="#consultation" data-i18n="hero.button">Beratung anfordern</a>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#consultation" data-i18n="hero.button">Получить консультацию</a>
+              <div class="hero__stats">
+                <div class="hero__stat">
+                  <span class="hero__stat-value" data-i18n="hero.stat1Value" data-counter="125">125+</span>
+                  <span class="hero__stat-label" data-i18n="hero.stat1Label">сопровождённых сделок</span>
+                </div>
+                <div class="hero__stat">
+                  <span class="hero__stat-value" data-i18n="hero.stat2Value" data-counter="12">12</span>
+                  <span class="hero__stat-label" data-i18n="hero.stat2Label">лет на рынке</span>
+                </div>
+                <div class="hero__stat">
+                  <span class="hero__stat-value" data-i18n="hero.stat3Value" data-counter="3">3</span>
+                  <span class="hero__stat-label" data-i18n="hero.stat3Label">языка обслуживания</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="hero__card" aria-labelledby="contact-card-heading">
-            <h2 id="contact-card-heading" data-i18n="contactInfo.heading">Ihr direkter Draht zu uns</h2>
-            <p data-i18n="contactInfo.text">Kontaktieren Sie uns für eine erste Einschätzung Ihres Vorhabens.</p>
-            <div class="contact-card__item">
-              <span class="contact-card__label" data-i18n="contact.phoneLabel">Telefon</span>
-              <a href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
-            </div>
-            <div class="contact-card__item">
-              <span class="contact-card__label" data-i18n="contact.emailLabel">E-Mail</span>
-              <a href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
-            </div>
-            <div class="contact-card__item">
-              <span class="contact-card__label" data-i18n="contact.addressLabel">Standort</span>
-              <span data-i18n="contact.addressValue">Kaliningrader Gebiet, Russische Föderation</span>
+          <div class="hero__media">
+            <img
+              class="hero__image lazy-media"
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80"
+              loading="lazy"
+              alt="Современный жилой квартал в Калининграде"
+              data-i18n-attr="alt:hero.imageAlt"
+            />
+            <div class="hero__card" aria-labelledby="contact-card-heading">
+              <h2 id="contact-card-heading" data-i18n="contactInfo.heading">Свяжитесь с нами напрямую</h2>
+              <p data-i18n="contactInfo.text">Расскажите о вашей ситуации — подготовим план действий и смету.</p>
+              <div class="contact-card__item">
+                <span class="contact-card__label" data-i18n="contact.phoneLabel">Телефон</span>
+                <a href="tel:+79012345678" data-i18n="contact.phoneValue">+7 901 234-56-78</a>
+              </div>
+              <div class="contact-card__item">
+                <span class="contact-card__label" data-i18n="contact.emailLabel">E-mail</span>
+                <a href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
+              </div>
+              <div class="contact-card__item">
+                <span class="contact-card__label" data-i18n="contact.addressLabel">Адрес</span>
+                <span data-i18n="contact.addressValue">Калининградская область, РФ</span>
+              </div>
             </div>
           </div>
         </div>
@@ -71,20 +117,20 @@
       <section class="section section--light" id="about">
         <div class="container section__content">
           <div class="section__intro">
-            <h2 data-i18n="about.heading">Über uns</h2>
+            <h2 data-i18n="about.heading">О нас</h2>
             <p data-i18n="about.paragraph1">
-              Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.
+              Наша команда сочетает европейский подход к качеству обслуживания и местную экспертизу Калининградского рынка недвижимости.
             </p>
             <p data-i18n="about.paragraph2">
-              Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.
+              Мы работаем прозрачно, объясняем каждый шаг понятным языком и всегда держим вас в курсе процесса.
             </p>
           </div>
           <div class="section__list">
-            <h3 data-i18n="about.listTitle">Was uns auszeichnet</h3>
+            <h3 data-i18n="about.listTitle">Наши преимущества</h3>
             <ul>
-              <li data-i18n="about.point1">Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen</li>
-              <li data-i18n="about.point2">Klares Kostenmodell ohne versteckte Gebühren</li>
-              <li data-i18n="about.point3">Persönliche Betreuung – telefonisch, online oder vor Ort</li>
+              <li data-i18n="about.point1">Многоязычные специалисты с опытом российско-европейских сделок</li>
+              <li data-i18n="about.point2">Прозрачная ценовая модель без скрытых комиссий</li>
+              <li data-i18n="about.point3">Индивидуальная поддержка — по телефону, онлайн или на месте</li>
             </ul>
           </div>
         </div>
@@ -92,20 +138,64 @@
 
       <section class="section" id="services">
         <div class="container">
-          <h2 data-i18n="services.heading">Unsere Leistungen</h2>
-          <p class="section__subtitle" data-i18n="services.intro">Wir übernehmen die vollständige Vorbereitung Ihrer Immobilientransaktion.</p>
+          <h2 data-i18n="services.heading">Наши услуги</h2>
+          <p class="section__subtitle" data-i18n="services.intro">Берём на себя полную подготовку и ведение вашей сделки с недвижимостью.</p>
           <div class="service-grid">
             <article class="service-card">
-              <h3 data-i18n="services.contract.title">Vertragsvorbereitung</h3>
-              <p data-i18n="services.contract.text">Ausarbeitung und Prüfung von Kauf- und Mietverträgen nach deutschen und russischen Standards.</p>
+              <h3 data-i18n="services.contract.title">Подготовка договоров</h3>
+              <p data-i18n="services.contract.text">Составление и проверка договоров купли-продажи и аренды с учётом российского и европейского законодательства.</p>
             </article>
             <article class="service-card">
-              <h3 data-i18n="services.documents.title">Dokumentenservice</h3>
-              <p data-i18n="services.documents.text">Beschaffung und Übersetzung aller notwendigen Unterlagen für Behörden und Banken.</p>
+              <h3 data-i18n="services.documents.title">Документальное сопровождение</h3>
+              <p data-i18n="services.documents.text">Сбор, апостилирование и перевод всех необходимых документов для органов власти и банков.</p>
             </article>
             <article class="service-card">
-              <h3 data-i18n="services.transaction.title">Transaktionsbetreuung</h3>
-              <p data-i18n="services.transaction.text">Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.</p>
+              <h3 data-i18n="services.transaction.title">Ведение сделки</h3>
+              <p data-i18n="services.transaction.text">Координация между продавцом, нотариусом и регистрационными органами до успешного завершения сделки.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--light" id="faq">
+        <div class="container">
+          <h2 data-i18n="faq.heading">Часто задаваемые вопросы</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question1">Какие документы нужны для покупки недвижимости?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-i18n="faq.answer1">Для покупки недвижимости потребуются паспорт, ИНН, выписка из ЕГРН на объект, договор купли-продажи и согласие супруга (если применимо). Мы поможем собрать все необходимые документы.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question2">Сколько времени занимает сделка?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-i18n="faq.answer2">Обычно от подписания договора до регистрации права собственности проходит 2-4 недели. Мы ускоряем процесс, координируя все этапы.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question3">Работаете ли вы с иностранными клиентами?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-i18n="faq.answer3">Да, мы специализируемся на работе с клиентами из Германии и ЕС, предоставляя консультации на русском, немецком и английском языках.</p>
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-item__question" aria-expanded="false">
+                <span data-i18n="faq.question4">Как формируется стоимость услуг?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-i18n="faq.answer4">Стоимость зависит от типа сделки и объёма работ. Мы предоставляем прозрачную смету без скрытых платежей после первичной консультации.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -114,42 +204,89 @@
       <section class="section section--accent" id="consultation">
         <div class="container consultation">
           <div class="consultation__intro">
-            <h2 data-i18n="consult.heading">Beratung anfordern</h2>
+            <h2 data-i18n="consult.heading">Запросить консультацию</h2>
             <p data-i18n="consult.description">
-              Senden Sie uns Ihre Kontaktdaten und kurze Angaben zum Objekt. Wir melden uns werktags innerhalb von 24 Stunden.
+              Оставьте контакты и краткое описание ситуации. Мы свяжемся с вами в течение рабочего дня и предложим дальнейшие шаги.
             </p>
           </div>
           <form class="form" id="consultation-form" novalidate>
             <div class="form__group">
-              <label for="name" data-i18n="consult.form.nameLabel">Name</label>
-              <input id="name" name="name" type="text" required data-i18n-placeholder="consult.form.namePlaceholder" placeholder="Ihr vollständiger Name" />
+              <label for="name" data-i18n="consult.form.nameLabel">Имя</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                inputmode="text"
+                autocomplete="name"
+                data-i18n-attr="placeholder:consult.form.namePlaceholder"
+                placeholder="Ваше полное имя"
+              />
+              <p class="form__error" id="error-name" data-error-for="name" aria-live="polite"></p>
             </div>
             <div class="form__group">
-              <label for="email" data-i18n="consult.form.emailLabel">E-Mail</label>
-              <input id="email" name="email" type="email" required data-i18n-placeholder="consult.form.emailPlaceholder" placeholder="Ihre E-Mail-Adresse" />
+              <label for="email" data-i18n="consult.form.emailLabel">E-mail</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                inputmode="email"
+                autocomplete="email"
+                data-i18n-attr="placeholder:consult.form.emailPlaceholder"
+                placeholder="Ваш e-mail"
+              />
+              <p class="form__error" id="error-email" data-error-for="email" aria-live="polite"></p>
             </div>
             <div class="form__group">
-              <label for="phone" data-i18n="consult.form.phoneLabel">Telefon</label>
-              <input id="phone" name="phone" type="tel" required data-i18n-placeholder="consult.form.phonePlaceholder" placeholder="Ihre Telefonnummer" />
+              <label for="phone" data-i18n="consult.form.phoneLabel">Телефон</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                inputmode="tel"
+                autocomplete="tel"
+                data-i18n-attr="placeholder:consult.form.phonePlaceholder"
+                placeholder="+7 (___) ___-__-__"
+              />
+              <p class="form__error" id="error-phone" data-error-for="phone" aria-live="polite"></p>
             </div>
             <div class="form__group">
-              <label for="message" data-i18n="consult.form.messageLabel">Nachricht</label>
-              <textarea id="message" name="message" rows="4" required data-i18n-placeholder="consult.form.messagePlaceholder" placeholder="Beschreiben Sie Ihr Anliegen oder das Objekt."></textarea>
+              <label for="message" data-i18n="consult.form.messageLabel">Комментарий</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                data-i18n-attr="placeholder:consult.form.messagePlaceholder"
+                placeholder="Опишите объект или задачу, с которой требуется помощь"
+              ></textarea>
+              <p class="form__error" id="error-message" data-error-for="message" aria-live="polite"></p>
             </div>
             <div class="form__group form__group--checkbox">
               <input id="consent" name="consent" type="checkbox" required />
-              <label for="consent" data-i18n="consult.form.consent">Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.</label>
+              <label for="consent" data-i18n="consult.form.consent">Я соглашаюсь на обработку персональных данных для связи со мной.</label>
             </div>
-            <button class="button button--wide" type="submit" data-i18n="consult.form.submit">Nachricht senden</button>
+            <button class="button button--wide" type="submit" data-i18n="consult.form.submit">Отправить заявку</button>
             <p class="form__response" id="form-response" role="status" aria-live="polite"></p>
           </form>
+          <div class="consultation__media">
+            <iframe
+              class="consultation__map lazy-media"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=20.437%2C54.698%2C20.525%2C54.724&amp;layer=mapnik"
+              loading="lazy"
+              title="Офис в Калининграде"
+              data-i18n-attr="title:consult.mapTitle"
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container">
-        <p data-i18n="footer.rights">© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.</p>
+        <p data-i18n="footer.rights">© Сопровождение недвижимости в Калининграде. Все права защищены.</p>
       </div>
     </footer>
   </body>
