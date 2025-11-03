@@ -554,6 +554,37 @@ li {
   }
 }
 
+/* Sticky header enhancement */
+.contact-bar.scrolled {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for service cards */
+.service-card.reveal {
+  transition-delay: 0.1s;
+}
+
+.service-card.reveal:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.service-card.reveal:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -565,5 +596,12 @@ li {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  /* Disable reveal animations for users who prefer reduced motion */
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
