@@ -4,38 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kaliningrad Immobilienbegleitung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body>
-    <header class="contact-bar">
-      <div class="container contact-bar__content">
-        <div class="contact-bar__details">
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.phoneLabel">Telefon</span>
-            <a class="contact-entry__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
+  <body data-theme="light">
+    <header class="site-header" id="site-header">
+      <div class="contact-bar" role="presentation">
+        <div class="container contact-bar__content">
+          <div class="contact-bar__details">
+            <div class="contact-entry">
+              <span class="contact-entry__label" data-i18n="contact.phoneLabel">Telefon</span>
+              <a class="contact-entry__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
+            </div>
+            <div class="contact-entry">
+              <span class="contact-entry__label" data-i18n="contact.emailLabel">E-Mail</span>
+              <a class="contact-entry__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
+            </div>
+            <div class="contact-entry">
+              <span class="contact-entry__label" data-i18n="contact.hoursLabel">Sprechzeiten</span>
+              <span class="contact-entry__value" data-i18n="contact.hoursValue">Montag – Freitag, 09:00 – 18:00 Uhr</span>
+            </div>
           </div>
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.emailLabel">E-Mail</span>
-            <a class="contact-entry__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
-          </div>
-          <div class="contact-entry">
-            <span class="contact-entry__label" data-i18n="contact.hoursLabel">Sprechzeiten</span>
-            <span class="contact-entry__value" data-i18n="contact.hoursValue">Montag – Freitag, 09:00 – 18:00 Uhr</span>
+          <div class="contact-bar__tools">
+            <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
+              <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
+              <div class="language-switcher__buttons">
+                <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
+                <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
+              </div>
+            </div>
+            <button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle data-i18n-aria-label="theme.switchToDark">
+              <span class="theme-toggle__icon" aria-hidden="true"></span>
+              <span class="theme-toggle__label" data-i18n="theme.switchToDark">Dunkles Design</span>
+            </button>
           </div>
         </div>
-        <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
-          <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
-          <div class="language-switcher__buttons">
-            <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
-            <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
-          </div>
+      </div>
+      <div class="nav-bar">
+        <div class="container nav-bar__content">
+          <a class="brand" href="#home">
+            <span class="brand__mark" aria-hidden="true">KI</span>
+            <span class="brand__text" data-i18n="brand.name">Kaliningrad Immobilienbegleitung</span>
+          </a>
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+            <span class="nav-toggle__label" data-i18n="nav.menu">Menü</span>
+            <span class="nav-toggle__icon" aria-hidden="true"></span>
+          </button>
+          <nav class="primary-nav" id="primary-navigation" aria-label="Hauptnavigation">
+            <ul class="primary-nav__list">
+              <li><a href="#home" data-i18n="nav.home">Start</a></li>
+              <li><a href="#about" data-i18n="nav.about">Über uns</a></li>
+              <li><a href="#services" data-i18n="nav.services">Leistungen</a></li>
+              <li><a href="#team" data-i18n="nav.team">Team</a></li>
+              <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+              <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+            </ul>
+            <div class="primary-nav__actions">
+              <a class="button button--primary button--cta" href="#consultation" data-i18n="nav.cta">Beratung buchen</a>
+            </div>
+          </nav>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="hero" id="home">
+      <section class="hero has-background" id="home" style="background-image: linear-gradient(120deg, rgba(44, 62, 80, 0.4), rgba(44, 62, 80, 0.4)), url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&amp;fit=crop&amp;w=1600&amp;q=70');">
         <div class="container hero__grid">
           <div class="hero__content">
             <h1 data-i18n="hero.title">Verlässliche Immobilienunterstützung im Kaliningrader Gebiet</h1>
@@ -47,7 +82,10 @@
               <li data-i18n="hero.point2">Prüfung und Erstellung rechtssicherer Kaufunterlagen</li>
               <li data-i18n="hero.point3">Betreuung vor Ort mit lokalen Expert:innen</li>
             </ul>
-            <a class="button button--primary" href="#consultation" data-i18n="hero.button">Beratung anfordern</a>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#consultation" data-i18n="hero.button">Beratung anfordern</a>
+              <a class="button button--secondary" href="#services" data-i18n="hero.secondaryButton">Leistungen entdecken</a>
+            </div>
           </div>
           <div class="hero__card" aria-labelledby="contact-card-heading">
             <h2 id="contact-card-heading" data-i18n="contactInfo.heading">Ihr direkter Draht zu uns</h2>
@@ -69,23 +107,44 @@
       </section>
 
       <section class="section section--light" id="about">
-        <div class="container section__content">
-          <div class="section__intro">
+        <div class="container">
+          <div class="section__heading">
             <h2 data-i18n="about.heading">Über uns</h2>
-            <p data-i18n="about.paragraph1">
+            <p class="section__subtitle" data-i18n="about.subtitle">
               Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.
             </p>
-            <p data-i18n="about.paragraph2">
-              Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.
-            </p>
           </div>
-          <div class="section__list">
-            <h3 data-i18n="about.listTitle">Was uns auszeichnet</h3>
-            <ul>
-              <li data-i18n="about.point1">Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen</li>
-              <li data-i18n="about.point2">Klares Kostenmodell ohne versteckte Gebühren</li>
-              <li data-i18n="about.point3">Persönliche Betreuung – telefonisch, online oder vor Ort</li>
-            </ul>
+          <div class="about-grid">
+            <div class="about-grid__column">
+              <p data-i18n="about.paragraph1">
+                Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.
+              </p>
+              <p data-i18n="about.paragraph2">
+                Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.
+              </p>
+            </div>
+            <div class="about-grid__column">
+              <h3 data-i18n="about.listTitle">Was uns auszeichnet</h3>
+              <ul>
+                <li data-i18n="about.point1">Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen</li>
+                <li data-i18n="about.point2">Klares Kostenmodell ohne versteckte Gebühren</li>
+                <li data-i18n="about.point3">Persönliche Betreuung – telefonisch, online oder vor Ort</li>
+              </ul>
+            </div>
+          </div>
+          <div class="achievement-grid">
+            <article class="achievement-card">
+              <h3 data-i18n="achievements.metric1.title">125+ begleitete Kaufabschlüsse</h3>
+              <p data-i18n="achievements.metric1.text">Von der ersten Anfrage bis zur Schlüsselübergabe – zuverlässig und transparent.</p>
+            </article>
+            <article class="achievement-card">
+              <h3 data-i18n="achievements.metric2.title">48h Dokumenten-Check</h3>
+              <p data-i18n="achievements.metric2.text">Rechtliche Prüfung kritischer Unterlagen innerhalb von zwei Werktagen.</p>
+            </article>
+            <article class="achievement-card">
+              <h3 data-i18n="achievements.metric3.title">98% Weiterempfehlung</h3>
+              <p data-i18n="achievements.metric3.text">Unsere Kund:innen schätzen klare Kommunikation und planbare Abläufe.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -107,11 +166,133 @@
               <h3 data-i18n="services.transaction.title">Transaktionsbetreuung</h3>
               <p data-i18n="services.transaction.text">Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.</p>
             </article>
+            <article class="service-card">
+              <h3 data-i18n="services.dueDiligence.title">Due-Diligence-Analyse</h3>
+              <p data-i18n="services.dueDiligence.text">Risikoprüfung, Standortbewertung und Wirtschaftlichkeitsanalysen für informierte Entscheidungen.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--accent" id="consultation">
+      <section class="section section--light" id="team">
+        <div class="container">
+          <h2 data-i18n="team.heading">Unser Team</h2>
+          <p class="section__subtitle" data-i18n="team.subtitle">
+            Interdisziplinäre Spezialist:innen begleiten Sie in allen Phasen der Immobilienabwicklung.
+          </p>
+          <div class="team-grid">
+            <article class="team-card">
+              <img class="team-card__image" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&amp;fit=crop&amp;w=600&amp;q=70" alt="Portrait von Anna Schneider" />
+              <h3 class="team-card__name" data-i18n="team.member1.name">Anna Schneider</h3>
+              <p class="team-card__role" data-i18n="team.member1.role">Leitung Recht &amp; Compliance</p>
+              <p data-i18n="team.member1.bio">Spezialisiert auf deutsch-russische Vertragsstrukturen und sichere Kaufabwicklungen.</p>
+            </article>
+            <article class="team-card">
+              <img class="team-card__image" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=600&amp;q=70" alt="Portrait von Dmitri Ivanov" />
+              <h3 class="team-card__name" data-i18n="team.member2.name">Dmitri Ivanov</h3>
+              <p class="team-card__role" data-i18n="team.member2.role">Standortleitung Kaliningrad</p>
+              <p data-i18n="team.member2.bio">Koordiniert Behördenkontakte, Objektprüfungen und lokale Expert:innen.</p>
+            </article>
+            <article class="team-card">
+              <img class="team-card__image" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&amp;fit=crop&amp;w=600&amp;q=70" alt="Portrait von Lena Vogt" />
+              <h3 class="team-card__name" data-i18n="team.member3.name">Lena Vogt</h3>
+              <p class="team-card__role" data-i18n="team.member3.role">Kundenerfolg &amp; Übersetzungen</p>
+              <p data-i18n="team.member3.bio">Sorgt für klare Abstimmungen, Terminplanung und mehrsprachige Kommunikation.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="container">
+          <h2 data-i18n="faq.heading">Häufige Fragen</h2>
+          <p class="section__subtitle" data-i18n="faq.subtitle">Antworten auf die wichtigsten Fragen zum Kaufprozess im Kaliningrader Gebiet.</p>
+          <div class="faq-list">
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" data-faq-control="faq-answer-1">
+                <span data-i18n="faq.q1.question">Wie lange dauert die Vorbereitung eines Kaufvertrags?</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-1" data-i18n="faq.q1.answer">
+                In der Regel benötigen wir nach Eingang aller Unterlagen drei bis fünf Werktage für die rechtliche Prüfung und Anpassung.
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" data-faq-control="faq-answer-2">
+                <span data-i18n="faq.q2.question">Unterstützen Sie auch bei Finanzierungsfragen?</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-2" data-i18n="faq.q2.answer">
+                Ja. Wir koordinieren auf Wunsch die Kommunikation mit Banken und bereiten alle notwendigen Unterlagen in deutscher und russischer Sprache vor.
+              </div>
+            </article>
+            <article class="faq-item">
+              <button class="faq-question" type="button" aria-expanded="false" data-faq-control="faq-answer-3">
+                <span data-i18n="faq.q3.question">Kann ich den Service vollständig aus Deutschland nutzen?</span>
+              </button>
+              <div class="faq-answer" id="faq-answer-3" data-i18n="faq.q3.answer">
+                Selbstverständlich. Viele Prozesse können wir digital abbilden, inklusive Videobesichtigungen und notariell beglaubigter Vollmachten.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--accent" id="contact">
+        <div class="container contact-section">
+          <div class="contact-section__grid">
+            <div class="contact-section__column contact-section__column--details">
+              <h2 data-i18n="contactSection.heading">Kontakt aufnehmen</h2>
+              <p data-i18n="contactSection.subtitle">Wir beantworten Anfragen werktags innerhalb von 24 Stunden.</p>
+              <div class="contacts">
+                <div class="contact-item">
+                  <span class="contact-icon" aria-hidden="true">☎</span>
+                  <div class="contact-info">
+                    <span class="contact-info__label" data-i18n="contact.phoneLabel">Telefon</span>
+                    <a class="contact-info__value" href="tel:+49301234567" data-i18n="contact.phoneValue">+49 30 123 4567</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon" aria-hidden="true">✉</span>
+                  <div class="contact-info">
+                    <span class="contact-info__label" data-i18n="contact.emailLabel">E-Mail</span>
+                    <a class="contact-info__value" href="mailto:info@kaliningrad-immobilien.de" data-i18n="contact.emailValue">info@kaliningrad-immobilien.de</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon" aria-hidden="true">📍</span>
+                  <div class="contact-info">
+                    <span class="contact-info__label" data-i18n="contact.addressLabel">Standort</span>
+                    <span class="contact-info__value" data-i18n="contact.addressValue">Kaliningrader Gebiet, Russische Föderation</span>
+                  </div>
+                </div>
+              </div>
+              <div class="messenger-links" aria-label="Messenger">
+                <a class="messenger-link" href="https://wa.me/49301234567" target="_blank" rel="noreferrer" data-i18n-aria-label="contactSection.whatsappLabel">WA</a>
+                <a class="messenger-link" href="https://t.me/kaliningrad-immobilien" target="_blank" rel="noreferrer" data-i18n-aria-label="contactSection.telegramLabel">TG</a>
+              </div>
+              <div class="social-links" aria-label="Social Media">
+                <a class="social-link" href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-i18n-aria-label="contactSection.linkedinLabel">in</a>
+                <a class="social-link" href="https://www.youtube.com" target="_blank" rel="noreferrer" data-i18n-aria-label="contactSection.youtubeLabel">yt</a>
+              </div>
+            </div>
+            <div class="contact-section__column contact-section__column--map">
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2253.781688860488!2d20.498005316157174!3d54.710426980289384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e33d3681ce4b47%3A0xfb1f2d9d39f7c0c3!2sKaliningrad%2C%20Russia!5e0!3m2!1sen!2sde!4v1615567469487!5m2!1sen!2sde"
+                  width="600"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Google Maps Kaliningrad"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="consultation">
         <div class="container consultation">
           <div class="consultation__intro">
             <h2 data-i18n="consult.heading">Beratung anfordern</h2>
@@ -140,7 +321,7 @@
               <input id="consent" name="consent" type="checkbox" required />
               <label for="consent" data-i18n="consult.form.consent">Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.</label>
             </div>
-            <button class="button button--wide" type="submit" data-i18n="consult.form.submit">Nachricht senden</button>
+            <button class="button button--primary button--wide" type="submit" data-i18n="consult.form.submit">Nachricht senden</button>
             <p class="form__response" id="form-response" role="status" aria-live="polite"></p>
           </form>
         </div>
