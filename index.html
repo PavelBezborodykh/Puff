@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kaliningrad Immobilienbegleitung</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="contact-bar">
@@ -27,6 +26,7 @@
         <div class="language-switcher" role="group" aria-label="Sprache" data-i18n-aria-label="language.switcherLabel">
           <span class="language-switcher__label" data-i18n="language.switcherLabel">Sprache</span>
           <div class="language-switcher__buttons">
+            <button type="button" class="language-button" data-lang="ru" aria-pressed="false">RU</button>
             <button type="button" class="language-button" data-lang="de" aria-pressed="true">DE</button>
             <button type="button" class="language-button" data-lang="en" aria-pressed="false">EN</button>
           </div>
@@ -152,5 +152,926 @@
         <p data-i18n="footer.rights">© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.</p>
       </div>
     </footer>
+
+    <script>
+      'use strict';
+
+      // ============================================================================
+      // TRANSLATIONS DATA - Complete i18n for RU/DE/EN
+      // ============================================================================
+      const translations = {
+        ru: {
+          "page.title": "Сопровождение недвижимости в Калининграде",
+          "language.switcherLabel": "Язык",
+          "contact.phoneLabel": "Телефон",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "Email",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Часы работы",
+          "contact.hoursValue": "Понедельник – Пятница, 09:00 – 18:00",
+          "contact.addressLabel": "Местоположение",
+          "contact.addressValue": "Калининградская область, Российская Федерация",
+          "contactInfo.heading": "Ваша прямая связь с нами",
+          "contactInfo.text": "Свяжитесь с нами для первичной оценки вашего проекта.",
+          "hero.title": "Надежная поддержка в сфере недвижимости в Калининградской области",
+          "hero.subtitle": "Мы сопровождаем вас на каждом этапе инвестирования в недвижимость – от первого договора до безопасной передачи.",
+          "hero.point1": "Понятные консультации для немецких и европейских клиентов",
+          "hero.point2": "Проверка и подготовка юридически безопасных документов на покупку",
+          "hero.point3": "Поддержка на месте с местными экспертами",
+          "hero.button": "Запросить консультацию",
+          "about.heading": "О нас",
+          "about.paragraph1": "Наша специализированная команда сочетает немецкое качество обслуживания с местным опытом в Калининградской области.",
+          "about.paragraph2": "Мы работаем прозрачно, понятно объясняем каждый шаг и держим вас в курсе.",
+          "about.listTitle": "Наши преимущества",
+          "about.point1": "Многоязычные специалисты с опытом сделок между ЕС и Россией",
+          "about.point2": "Прозрачная ценовая модель без скрытых комиссий",
+          "about.point3": "Персональное сопровождение – по телефону, онлайн или на месте",
+          "services.heading": "Наши услуги",
+          "services.intro": "Мы берем на себя полную подготовку вашей сделки с недвижимостью.",
+          "services.contract.title": "Подготовка договоров",
+          "services.contract.text": "Разработка и проверка договоров купли-продажи и аренды в соответствии с немецкими и российскими стандартами.",
+          "services.documents.title": "Документальное сопровождение",
+          "services.documents.text": "Получение и перевод всех необходимых документов для органов власти и банков.",
+          "services.transaction.title": "Сопровождение сделок",
+          "services.transaction.text": "Координация с владельцами, нотариусами и органами власти до успешного завершения.",
+          "consult.heading": "Запросить консультацию",
+          "consult.description": "Отправьте нам свои контактные данные и краткую информацию об объекте. Мы свяжемся с вами в рабочие дни в течение 24 часов.",
+          "consult.form.nameLabel": "Имя",
+          "consult.form.namePlaceholder": "Ваше полное имя",
+          "consult.form.emailLabel": "Email",
+          "consult.form.emailPlaceholder": "Ваш адрес электронной почты",
+          "consult.form.phoneLabel": "Телефон",
+          "consult.form.phonePlaceholder": "Ваш номер телефона",
+          "consult.form.messageLabel": "Сообщение",
+          "consult.form.messagePlaceholder": "Опишите ваш запрос или детали объекта.",
+          "consult.form.consent": "Я согласен на обработку моих данных для целей обработки этого запроса на консультацию.",
+          "consult.form.submit": "Отправить сообщение",
+          "consult.form.success": "Спасибо! Мы свяжемся с вами в ближайшее время.",
+          "consult.form.error": "Пожалуйста, правильно заполните все обязательные поля.",
+          "footer.rights": "© Сопровождение недвижимости в Калининграде. Все права защищены.",
+          "validation.nameRequired": "Пожалуйста, укажите ваше имя",
+          "validation.nameInvalid": "Имя должно содержать только буквы, пробелы и дефисы",
+          "validation.nameMinLength": "Имя должно содержать минимум 2 символа",
+          "validation.emailRequired": "Укажите email",
+          "validation.emailInvalid": "Неверный формат email",
+          "validation.phoneRequired": "Укажите телефон",
+          "validation.phoneInvalid": "Неверный формат телефона",
+          "validation.messageRequired": "Пожалуйста, введите сообщение",
+          "validation.messageMinLength": "Сообщение должно содержать минимум 10 символов",
+          "validation.consentRequired": "Необходимо согласие на обработку данных"
+        },
+        de: {
+          "page.title": "Kaliningrad Immobilienbegleitung",
+          "language.switcherLabel": "Sprache",
+          "contact.phoneLabel": "Telefon",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "E-Mail",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Sprechzeiten",
+          "contact.hoursValue": "Montag – Freitag, 09:00 – 18:00 Uhr",
+          "contact.addressLabel": "Standort",
+          "contact.addressValue": "Kaliningrader Gebiet, Russische Föderation",
+          "contactInfo.heading": "Ihr direkter Draht zu uns",
+          "contactInfo.text": "Kontaktieren Sie uns für eine erste Einschätzung Ihres Vorhabens.",
+          "hero.title": "Verlässliche Immobilienunterstützung im Kaliningrader Gebiet",
+          "hero.subtitle": "Wir begleiten Sie durch jeden Schritt Ihrer Immobilieninvestition – vom ersten Vertrag bis zur sicheren Übergabe.",
+          "hero.point1": "Verständliche Beratung für deutsche und europäische Klient:innen",
+          "hero.point2": "Prüfung und Erstellung rechtssicherer Kaufunterlagen",
+          "hero.point3": "Betreuung vor Ort mit lokalen Expert:innen",
+          "hero.button": "Beratung anfordern",
+          "about.heading": "Über uns",
+          "about.paragraph1": "Unser spezialisiertes Team verbindet deutsches Serviceverständnis mit lokaler Expertise im Kaliningrader Gebiet.",
+          "about.paragraph2": "Wir arbeiten transparent, erklären jeden Schritt verständlich und halten Sie stets auf dem Laufenden.",
+          "about.listTitle": "Was uns auszeichnet",
+          "about.point1": "Mehrsprachige Fachleute mit Erfahrung in EU-Russland-Transaktionen",
+          "about.point2": "Klares Kostenmodell ohne versteckte Gebühren",
+          "about.point3": "Persönliche Betreuung – telefonisch, online oder vor Ort",
+          "services.heading": "Unsere Leistungen",
+          "services.intro": "Wir übernehmen die vollständige Vorbereitung Ihrer Immobilientransaktion.",
+          "services.contract.title": "Vertragsvorbereitung",
+          "services.contract.text": "Ausarbeitung und Prüfung von Kauf- und Mietverträgen nach deutschen und russischen Standards.",
+          "services.documents.title": "Dokumentenservice",
+          "services.documents.text": "Beschaffung und Übersetzung aller notwendigen Unterlagen für Behörden und Banken.",
+          "services.transaction.title": "Transaktionsbetreuung",
+          "services.transaction.text": "Koordination mit Eigentümer:innen, Notar:innen und Behörden bis zum erfolgreichen Abschluss.",
+          "consult.heading": "Beratung anfordern",
+          "consult.description": "Senden Sie uns Ihre Kontaktdaten und kurze Angaben zum Objekt. Wir melden uns werktags innerhalb von 24 Stunden.",
+          "consult.form.nameLabel": "Name",
+          "consult.form.namePlaceholder": "Ihr vollständiger Name",
+          "consult.form.emailLabel": "E-Mail",
+          "consult.form.emailPlaceholder": "Ihre E-Mail-Adresse",
+          "consult.form.phoneLabel": "Telefon",
+          "consult.form.phonePlaceholder": "Ihre Telefonnummer",
+          "consult.form.messageLabel": "Nachricht",
+          "consult.form.messagePlaceholder": "Beschreiben Sie Ihr Anliegen oder das Objekt.",
+          "consult.form.consent": "Ich stimme der Verarbeitung meiner Daten zum Zweck der Kontaktaufnahme zu.",
+          "consult.form.submit": "Nachricht senden",
+          "consult.form.success": "Vielen Dank! Wir melden uns in Kürze.",
+          "consult.form.error": "Bitte füllen Sie alle Pflichtfelder korrekt aus.",
+          "footer.rights": "© Kaliningrad Immobilienbegleitung. Alle Rechte vorbehalten.",
+          "validation.nameRequired": "Bitte geben Sie Ihren Namen ein",
+          "validation.nameInvalid": "Name darf nur Buchstaben, Leerzeichen und Bindestriche enthalten",
+          "validation.nameMinLength": "Name muss mindestens 2 Zeichen lang sein",
+          "validation.emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+          "validation.emailInvalid": "Ungültige E-Mail-Adresse",
+          "validation.phoneRequired": "Bitte geben Sie Ihre Telefonnummer ein",
+          "validation.phoneInvalid": "Ungültige Telefonnummer",
+          "validation.messageRequired": "Bitte geben Sie eine Nachricht ein",
+          "validation.messageMinLength": "Nachricht muss mindestens 10 Zeichen lang sein",
+          "validation.consentRequired": "Bitte stimmen Sie der Datenverarbeitung zu"
+        },
+        en: {
+          "page.title": "Kaliningrad Real Estate Support",
+          "language.switcherLabel": "Language",
+          "contact.phoneLabel": "Phone",
+          "contact.phoneValue": "+49 30 123 4567",
+          "contact.emailLabel": "Email",
+          "contact.emailValue": "info@kaliningrad-immobilien.de",
+          "contact.hoursLabel": "Office hours",
+          "contact.hoursValue": "Monday – Friday, 9:00 – 18:00",
+          "contact.addressLabel": "Location",
+          "contact.addressValue": "Kaliningrad region, Russian Federation",
+          "contactInfo.heading": "Your direct line to us",
+          "contactInfo.text": "Get in touch for an initial assessment of your plans.",
+          "hero.title": "Reliable real estate assistance in the Kaliningrad region",
+          "hero.subtitle": "We accompany you through every step of your property investment – from the first draft to a safe handover.",
+          "hero.point1": "Clear guidance for clients from Germany and across the EU",
+          "hero.point2": "Drafting and reviewing compliant purchase documentation",
+          "hero.point3": "On-site coordination with trusted local specialists",
+          "hero.button": "Request consultation",
+          "about.heading": "About us",
+          "about.paragraph1": "Our dedicated team combines German-quality service with local expertise in the Kaliningrad region.",
+          "about.paragraph2": "We keep the process transparent, explain every step in plain language, and keep you informed.",
+          "about.listTitle": "Why clients choose us",
+          "about.point1": "Multilingual professionals experienced in EU–Russia transactions",
+          "about.point2": "Clear pricing with no hidden fees",
+          "about.point3": "Personal support – by phone, online, or on location",
+          "services.heading": "What we do",
+          "services.intro": "We take care of the complete preparation of your property transaction.",
+          "services.contract.title": "Contract preparation",
+          "services.contract.text": "Drafting and verifying purchase and rental contracts compliant with German and Russian regulations.",
+          "services.documents.title": "Documentation",
+          "services.documents.text": "Collecting and translating all required papers for authorities and financial institutions.",
+          "services.transaction.title": "Transaction support",
+          "services.transaction.text": "Coordinating with owners, notaries, and authorities until the deal is successfully closed.",
+          "consult.heading": "Request a consultation",
+          "consult.description": "Share your contact details and a short description of the property. We respond within one business day.",
+          "consult.form.nameLabel": "Name",
+          "consult.form.namePlaceholder": "Your full name",
+          "consult.form.emailLabel": "Email",
+          "consult.form.emailPlaceholder": "Your email address",
+          "consult.form.phoneLabel": "Phone",
+          "consult.form.phonePlaceholder": "Your phone number",
+          "consult.form.messageLabel": "Message",
+          "consult.form.messagePlaceholder": "Describe your request or property details.",
+          "consult.form.consent": "I agree that my data will be used to process this consultation request.",
+          "consult.form.submit": "Send message",
+          "consult.form.success": "Thank you! We will contact you shortly.",
+          "consult.form.error": "Please complete all required fields correctly.",
+          "footer.rights": "© Kaliningrad Real Estate Support. All rights reserved.",
+          "validation.nameRequired": "Please enter your name",
+          "validation.nameInvalid": "Name can only contain letters, spaces and hyphens",
+          "validation.nameMinLength": "Name must be at least 2 characters long",
+          "validation.emailRequired": "Please enter your email address",
+          "validation.emailInvalid": "Invalid email address",
+          "validation.phoneRequired": "Please enter your phone number",
+          "validation.phoneInvalid": "Invalid phone number",
+          "validation.messageRequired": "Please enter a message",
+          "validation.messageMinLength": "Message must be at least 10 characters long",
+          "validation.consentRequired": "Please agree to data processing"
+        }
+      };
+
+      // ============================================================================
+      // STATE & CACHED DOM ELEMENTS
+      // ============================================================================
+      let currentLanguage = 'de';
+      
+      // Cache frequently accessed DOM elements
+      const elements = {
+        header: null,
+        languageButtons: null,
+        form: null,
+        formResponse: null,
+        nameInput: null,
+        emailInput: null,
+        phoneInput: null,
+        messageInput: null,
+        consentInput: null,
+        submitButton: null,
+        sections: null
+      };
+
+      // ============================================================================
+      // UTILITY FUNCTIONS
+      // ============================================================================
+
+      /**
+       * Debounce function for performance optimization
+       * Limits the rate at which a function can fire
+       */
+      function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+          const later = () => {
+            clearTimeout(timeout);
+            func.apply(this, args);
+          };
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+        };
+      }
+
+      /**
+       * Get translation string for current language
+       */
+      function getTranslation(key) {
+        const dictionary = translations[currentLanguage];
+        return dictionary && dictionary[key] ? dictionary[key] : key;
+      }
+
+      /**
+       * Smooth scroll to element with offset for sticky header
+       */
+      function scrollToElement(target) {
+        if (!target) return;
+        
+        const headerHeight = elements.header ? elements.header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+
+      // ============================================================================
+      // MULTILINGUAL SYSTEM
+      // ============================================================================
+
+      /**
+       * Initialize language system
+       * Auto-detect browser language or use stored preference
+       */
+      function initLanguage() {
+        // Check if user has previously selected a language
+        const storedLang = localStorage.getItem('selectedLang');
+        
+        if (storedLang && translations[storedLang]) {
+          currentLanguage = storedLang;
+        } else {
+          // Auto-detect from browser
+          const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+          
+          if (browserLang.startsWith('ru')) {
+            currentLanguage = 'ru';
+          } else if (browserLang.startsWith('de')) {
+            currentLanguage = 'de';
+          } else {
+            currentLanguage = 'en';
+          }
+          
+          // Store the detected language
+          localStorage.setItem('selectedLang', currentLanguage);
+        }
+        
+        updateLanguage(currentLanguage);
+      }
+
+      /**
+       * Update all translatable content on the page
+       */
+      function updateLanguage(lang) {
+        if (!translations[lang]) {
+          lang = 'de'; // Fallback to German
+        }
+        
+        currentLanguage = lang;
+        
+        // Store preference
+        localStorage.setItem('selectedLang', lang);
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Apply all translations
+        applyTranslations(lang);
+        
+        // Update document title
+        updateDocumentTitle(lang);
+        
+        // Update language button states
+        updateLanguageButtons(lang);
+        
+        // Clear any form errors (they need to be re-translated)
+        clearErrors();
+      }
+
+      /**
+       * Apply translations to all elements with data-i18n attributes
+       */
+      function applyTranslations(lang) {
+        const dictionary = translations[lang];
+        if (!dictionary) return;
+
+        // Update text content
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+          const key = element.dataset.i18n;
+          const translation = dictionary[key];
+          if (translation) {
+            element.textContent = translation;
+          }
+        });
+
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+          const key = element.dataset.i18nPlaceholder;
+          const translation = dictionary[key];
+          if (translation) {
+            element.placeholder = translation;
+          }
+        });
+
+        // Update ARIA labels
+        document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+          const key = element.dataset.i18nAriaLabel;
+          const translation = dictionary[key];
+          if (translation) {
+            element.setAttribute('aria-label', translation);
+          }
+        });
+
+        // Update form response message if visible
+        if (elements.formResponse && elements.formResponse.dataset.messageType) {
+          const responseKey = elements.formResponse.dataset.messageType === 'success' 
+            ? 'consult.form.success' 
+            : 'consult.form.error';
+          const translation = dictionary[responseKey];
+          if (translation) {
+            elements.formResponse.textContent = translation;
+          }
+        }
+      }
+
+      /**
+       * Update document title
+       */
+      function updateDocumentTitle(lang) {
+        const title = getTranslation('page.title');
+        if (title) {
+          document.title = title;
+        }
+      }
+
+      /**
+       * Update language button active states
+       */
+      function updateLanguageButtons(activeLang) {
+        if (!elements.languageButtons) return;
+        
+        elements.languageButtons.forEach((button) => {
+          const isActive = button.dataset.lang === activeLang;
+          button.setAttribute('aria-pressed', String(isActive));
+          
+          // Add visual feedback class if defined in CSS
+          if (isActive) {
+            button.classList.add('active');
+          } else {
+            button.classList.remove('active');
+          }
+        });
+      }
+
+      /**
+       * Handle language switch button clicks
+       */
+      function handleLanguageSwitch(event) {
+        const button = event.target.closest('.language-button');
+        if (!button) return;
+        
+        const selectedLang = button.dataset.lang;
+        if (selectedLang && selectedLang !== currentLanguage) {
+          updateLanguage(selectedLang);
+        }
+      }
+
+      // ============================================================================
+      // NAVIGATION & SMOOTH SCROLL
+      // ============================================================================
+
+      /**
+       * Initialize navigation functionality
+       */
+      function initNavigation() {
+        // Handle all anchor link clicks for smooth scrolling
+        document.addEventListener('click', (event) => {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          
+          const href = link.getAttribute('href');
+          if (!href || href === '#') return;
+          
+          event.preventDefault();
+          
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            scrollToElement(targetElement);
+            
+            // Update focus for accessibility
+            targetElement.setAttribute('tabindex', '-1');
+            targetElement.focus();
+          }
+        });
+      }
+
+      /**
+       * Handle sticky header behavior
+       */
+      function initStickyHeader() {
+        if (!elements.header) return;
+        
+        const handleScroll = () => {
+          if (window.scrollY > 50) {
+            elements.header.classList.add('scrolled');
+          } else {
+            elements.header.classList.remove('scrolled');
+          }
+        };
+        
+        // Use debounced version for performance
+        const debouncedScroll = debounce(handleScroll, 10);
+        window.addEventListener('scroll', debouncedScroll, { passive: true });
+        
+        // Initial check
+        handleScroll();
+      }
+
+      // ============================================================================
+      // FORM VALIDATION & SUBMISSION
+      // ============================================================================
+
+      /**
+       * Validate name field
+       */
+      function validateName(value) {
+        if (!value || value.trim().length === 0) {
+          return getTranslation('validation.nameRequired');
+        }
+        
+        if (value.trim().length < 2) {
+          return getTranslation('validation.nameMinLength');
+        }
+        
+        // Allow letters (including Cyrillic and Latin), spaces, and hyphens
+        const nameRegex = /^[а-яА-ЯёЁa-zA-ZäöüßÄÖÜ\s-]+$/;
+        if (!nameRegex.test(value)) {
+          return getTranslation('validation.nameInvalid');
+        }
+        
+        return null;
+      }
+
+      /**
+       * Validate email field
+       */
+      function validateEmail(value) {
+        if (!value || value.trim().length === 0) {
+          return getTranslation('validation.emailRequired');
+        }
+        
+        // Standard email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          return getTranslation('validation.emailInvalid');
+        }
+        
+        return null;
+      }
+
+      /**
+       * Validate phone field
+       */
+      function validatePhone(value) {
+        if (!value || value.trim().length === 0) {
+          return getTranslation('validation.phoneRequired');
+        }
+        
+        // Accept various phone formats (international and local)
+        // This is a flexible regex that accepts most formats
+        const phoneRegex = /^[\d\s\+\-\(\)]{7,}$/;
+        if (!phoneRegex.test(value)) {
+          return getTranslation('validation.phoneInvalid');
+        }
+        
+        return null;
+      }
+
+      /**
+       * Validate message field
+       */
+      function validateMessage(value) {
+        if (!value || value.trim().length === 0) {
+          return getTranslation('validation.messageRequired');
+        }
+        
+        if (value.trim().length < 10) {
+          return getTranslation('validation.messageMinLength');
+        }
+        
+        return null;
+      }
+
+      /**
+       * Validate consent checkbox
+       */
+      function validateConsent(checked) {
+        if (!checked) {
+          return getTranslation('validation.consentRequired');
+        }
+        return null;
+      }
+
+      /**
+       * Show error message for a field
+       */
+      function showError(field, message) {
+        if (!field || !message) return;
+        
+        // Add error class to field
+        field.classList.add('error');
+        
+        // Remove existing error message if any
+        const existingError = field.parentElement.querySelector('.error-message');
+        if (existingError) {
+          existingError.remove();
+        }
+        
+        // Create and insert error message
+        const errorElement = document.createElement('span');
+        errorElement.className = 'error-message';
+        errorElement.textContent = message;
+        errorElement.setAttribute('role', 'alert');
+        errorElement.style.color = 'var(--color-error, #dc3545)';
+        errorElement.style.fontSize = '0.875rem';
+        errorElement.style.marginTop = '0.25rem';
+        errorElement.style.display = 'block';
+        
+        field.parentElement.appendChild(errorElement);
+      }
+
+      /**
+       * Clear error for a specific field
+       */
+      function clearFieldError(field) {
+        if (!field) return;
+        
+        field.classList.remove('error');
+        
+        const errorMessage = field.parentElement.querySelector('.error-message');
+        if (errorMessage) {
+          errorMessage.remove();
+        }
+      }
+
+      /**
+       * Clear all form errors
+       */
+      function clearErrors() {
+        if (!elements.form) return;
+        
+        const fields = elements.form.querySelectorAll('.error');
+        fields.forEach(field => field.classList.remove('error'));
+        
+        const errorMessages = elements.form.querySelectorAll('.error-message');
+        errorMessages.forEach(msg => msg.remove());
+      }
+
+      /**
+       * Validate single field
+       */
+      function validateField(field) {
+        if (!field) return true;
+        
+        let error = null;
+        const value = field.value;
+        
+        if (field === elements.nameInput) {
+          error = validateName(value);
+        } else if (field === elements.emailInput) {
+          error = validateEmail(value);
+        } else if (field === elements.phoneInput) {
+          error = validatePhone(value);
+        } else if (field === elements.messageInput) {
+          error = validateMessage(value);
+        } else if (field === elements.consentInput) {
+          error = validateConsent(field.checked);
+        }
+        
+        if (error) {
+          showError(field, error);
+          return false;
+        } else {
+          clearFieldError(field);
+          return true;
+        }
+      }
+
+      /**
+       * Format phone number (basic formatting)
+       */
+      function formatPhone(value) {
+        // Remove all non-digit characters except + at start
+        let cleaned = value.replace(/[^\d+]/g, '');
+        
+        // Ensure + is only at the start
+        if (cleaned.includes('+')) {
+          const hasPlus = cleaned.startsWith('+');
+          cleaned = cleaned.replace(/\+/g, '');
+          if (hasPlus) cleaned = '+' + cleaned;
+        }
+        
+        return cleaned;
+      }
+
+      /**
+       * Handle phone input formatting
+       */
+      function handlePhoneInput(event) {
+        const input = event.target;
+        const cursorPosition = input.selectionStart;
+        const oldValue = input.value;
+        const newValue = formatPhone(oldValue);
+        
+        if (newValue !== oldValue) {
+          input.value = newValue;
+          // Try to maintain cursor position
+          input.setSelectionRange(cursorPosition, cursorPosition);
+        }
+      }
+
+      /**
+       * Show form response message
+       */
+      function showFormMessage(type) {
+        if (!elements.formResponse) return;
+        
+        const key = type === 'success' ? 'consult.form.success' : 'consult.form.error';
+        const message = getTranslation(key);
+        
+        elements.formResponse.textContent = message;
+        elements.formResponse.className = 'form__response ' + type;
+        elements.formResponse.dataset.messageType = type;
+        
+        // Announce to screen readers
+        elements.formResponse.setAttribute('role', 'status');
+        elements.formResponse.setAttribute('aria-live', 'polite');
+      }
+
+      /**
+       * Clear form response message
+       */
+      function clearFormMessage() {
+        if (!elements.formResponse) return;
+        
+        elements.formResponse.textContent = '';
+        elements.formResponse.className = 'form__response';
+        delete elements.formResponse.dataset.messageType;
+      }
+
+      /**
+       * Handle form submission
+       */
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        // Clear previous messages and errors
+        clearFormMessage();
+        clearErrors();
+        
+        // Validate all fields
+        const nameValid = validateField(elements.nameInput);
+        const emailValid = validateField(elements.emailInput);
+        const phoneValid = validateField(elements.phoneInput);
+        const messageValid = validateField(elements.messageInput);
+        const consentValid = validateField(elements.consentInput);
+        
+        const allValid = nameValid && emailValid && phoneValid && messageValid && consentValid;
+        
+        if (!allValid) {
+          showFormMessage('error');
+          
+          // Focus first field with error
+          const firstError = elements.form.querySelector('.error');
+          if (firstError) {
+            firstError.focus();
+          }
+          
+          return;
+        }
+        
+        // Collect form data
+        const formData = {
+          name: elements.nameInput.value.trim(),
+          email: elements.emailInput.value.trim(),
+          phone: elements.phoneInput.value.trim(),
+          message: elements.messageInput.value.trim(),
+          consent: elements.consentInput.checked,
+          language: currentLanguage,
+          timestamp: new Date().toISOString()
+        };
+        
+        // Log form data (placeholder for actual submission)
+        console.log('Form submitted:', formData);
+        
+        // Show success message
+        showFormMessage('success');
+        
+        // Reset form after delay
+        setTimeout(() => {
+          elements.form.reset();
+          clearFormMessage();
+        }, 3000);
+      }
+
+      /**
+       * Handle real-time field validation on input
+       */
+      function handleFieldInput(event) {
+        const field = event.target;
+        
+        // Clear error message when user starts typing
+        if (field.classList.contains('error')) {
+          clearFieldError(field);
+        }
+        
+        // Clear form-level error message
+        if (elements.formResponse && elements.formResponse.dataset.messageType === 'error') {
+          clearFormMessage();
+        }
+      }
+
+      /**
+       * Handle field blur for validation
+       */
+      function handleFieldBlur(event) {
+        const field = event.target;
+        
+        // Only validate if field has a value or was previously validated
+        if (field.value.trim().length > 0 || field.classList.contains('error')) {
+          validateField(field);
+        }
+      }
+
+      /**
+       * Initialize form validation and handling
+       */
+      function initForm() {
+        if (!elements.form) return;
+        
+        // Form submission
+        elements.form.addEventListener('submit', handleFormSubmit);
+        
+        // Real-time validation on input
+        if (elements.nameInput) {
+          elements.nameInput.addEventListener('input', handleFieldInput);
+          elements.nameInput.addEventListener('blur', handleFieldBlur);
+        }
+        
+        if (elements.emailInput) {
+          elements.emailInput.addEventListener('input', handleFieldInput);
+          elements.emailInput.addEventListener('blur', handleFieldBlur);
+        }
+        
+        if (elements.phoneInput) {
+          elements.phoneInput.addEventListener('input', handlePhoneInput);
+          elements.phoneInput.addEventListener('input', handleFieldInput);
+          elements.phoneInput.addEventListener('blur', handleFieldBlur);
+        }
+        
+        if (elements.messageInput) {
+          elements.messageInput.addEventListener('input', handleFieldInput);
+          elements.messageInput.addEventListener('blur', handleFieldBlur);
+        }
+        
+        if (elements.consentInput) {
+          elements.consentInput.addEventListener('change', handleFieldInput);
+        }
+      }
+
+      // ============================================================================
+      // SCROLL ANIMATIONS
+      // ============================================================================
+
+      /**
+       * Initialize scroll-based reveal animations using Intersection Observer
+       */
+      function initScrollAnimations() {
+        // Check if IntersectionObserver is supported
+        if (!('IntersectionObserver' in window)) return;
+        
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -100px 0px', // Trigger slightly before element enters viewport
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // Optionally unobserve after animation to improve performance
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        
+        // Observe all sections and cards
+        if (elements.sections) {
+          elements.sections.forEach(section => {
+            section.classList.add('reveal'); // Add reveal class for CSS
+            observer.observe(section);
+          });
+        }
+        
+        // Also observe service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+          card.classList.add('reveal');
+          observer.observe(card);
+        });
+      }
+
+      // ============================================================================
+      // DOM CACHING & INITIALIZATION
+      // ============================================================================
+
+      /**
+       * Cache all DOM elements we'll need
+       */
+      function cacheElements() {
+        elements.header = document.querySelector('header');
+        elements.languageButtons = document.querySelectorAll('.language-button');
+        elements.form = document.getElementById('consultation-form');
+        elements.formResponse = document.getElementById('form-response');
+        elements.nameInput = document.getElementById('name');
+        elements.emailInput = document.getElementById('email');
+        elements.phoneInput = document.getElementById('phone');
+        elements.messageInput = document.getElementById('message');
+        elements.consentInput = document.getElementById('consent');
+        elements.submitButton = elements.form ? elements.form.querySelector('button[type="submit"]') : null;
+        elements.sections = document.querySelectorAll('section');
+      }
+
+      /**
+       * Initialize all functionality
+       */
+      function init() {
+        try {
+          // Cache DOM elements
+          cacheElements();
+          
+          // Initialize all modules
+          initLanguage();
+          initNavigation();
+          initStickyHeader();
+          initForm();
+          initScrollAnimations();
+          
+          // Set up language switcher
+          if (elements.languageButtons) {
+            elements.languageButtons.forEach(button => {
+              button.addEventListener('click', handleLanguageSwitch);
+            });
+          }
+          
+          // Add keyboard accessibility for language switcher
+          document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+              // Clear any open modals or messages
+              if (elements.formResponse && elements.formResponse.textContent) {
+                clearFormMessage();
+              }
+            }
+          });
+          
+        } catch (error) {
+          console.error('Initialization error:', error);
+        }
+      }
+
+      // ============================================================================
+      // START APPLICATION
+      // ============================================================================
+
+      // Wait for DOM to be fully loaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        // DOM is already loaded
+        init();
+      }
+    </script>
   </body>
 </html>
